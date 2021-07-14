@@ -18,10 +18,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/996973c893.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color: #1D1D26; font-family: 'Work Sans', sans-serif;">
 
+    <!-- Banner -->
     <div style="position: absolute; top: 20%; left: 33%;  border-color: white;">
         <h1 style="color: white; font-weight:800; font-size: 8vw; margin-bottom: 0px;">C Square<span
                 style="color: #fc76a1;">.</span></h1>
@@ -38,7 +41,7 @@
                 in</button>
         </div>
 
-
+        <!--Sign up slider-->
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
             aria-labelledby="offcanvasBottomLabel"
             style="height: 55%; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
@@ -80,7 +83,8 @@
                                     <!-- <a href="user.php" style="border-radius: 2vw" class="btn" style="background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c);"
                                         type="button">Create Account</a> -->
                                     <br>
-                                    <a href="user.php" type="button" class="btn btn-lg hover-item"
+                                    <a href="#" type="button" class="btn btn-lg hover-item" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-dismiss="offcanvas"
                                         style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Create
                                         Account</a>
                                     <!-- <br>
@@ -112,16 +116,12 @@
                             <!-- <p style="text-align:center; font-size: 11px; color: black; opacity: 0.6">By signing up, you
                                 agree to our Terms & conditions, Privacy policy</p> -->
                         </div>
-
-
                     </div>
                 </div>
-                <!---->
-
-
             </div>
         </div>
 
+        <!--Sign in slider-->
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom2"
             aria-labelledby="offcanvasBottomLabel"
             style="height: 55%; width: 25%; left: 38% ; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
@@ -150,7 +150,7 @@
                             <div class="col-12">
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <br>
-                                    <a href="user.php" class="btn btn-lg hover-item"
+                                    <a href="home.html" class="btn btn-lg hover-item"
                                         style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;"
                                         type="button">Sign In</a>
                                     <!-- <br>
@@ -161,47 +161,72 @@
                                         class="btn" type="button"><img src="logos/google.png">&nbsp&nbspSign in with
                                         Google</a>
                                     <br> -->
-                                    
+
                                     <br>
-                                    <a href="#" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" style="margin-left: 20%; font-weight: 500; font-size: 12px; color: #fc76a1;">Create account</a>
+                                    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                        aria-controls="offcanvasBottom"
+                                        style="margin-left: 20%; font-weight: 500; font-size: 12px; color: #fc76a1;">Create
+                                        account</a>
 
                                 </div>
-
                             </div>
-
-
                         </form>
                     </div>
-
-                    <!---->
-
-
                 </div>
             </div>
-
-            <style>
-                .hover-item {
-                    transition: 0.3s;
-                }
-
-                .hover-item:hover {
-                    transform: translate(0, -5px);
-                }
-
-                .form-control {
-                    border: 2px solid #1D1D26;
-                }
-
-                .form-control:hover {
-
-                    border-color: #fc76a1;
-                }
-            </style>
-
-
-
         </div>
+
+
+
+
+    
+        <!-- Success Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
+                    <div class="modal-header"
+                        style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw; ">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">Account
+                            Created !</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="background-color: #1D1D26; text-align: center; ">
+                        <i class="far fa-check-circle" style="font-size: 12rem; color: #fc76a1;"></i>
+                    </div>
+                    <div
+                        style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
+                        <br>
+                        <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2" data-bs-dismiss="modal"
+                            aria-controls="offcanvasBottom" type="button" class="btn-lg hover-item"
+                            style="background-color: #fc76a1; border-color: #fc76a1; font-weight: 500; color: white; border-radius: 1vw;">Login</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <style>
+            .hover-item {
+                transition: 0.3s;
+            }
+
+            .hover-item:hover {
+                transform: translate(0, -5px);
+            }
+
+            .form-control {
+                border: 2px solid #1D1D26;
+            }
+
+            .form-control:hover {
+
+                border-color: #fc76a1;
+            }
+        </style>
+
 </body>
+
 
 </html>
