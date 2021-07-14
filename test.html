@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Rive Hello World</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+
+        <script src="https://unpkg.com/rive-js"></script>
+        <script>
+            new rive.Rive({
+                src: 'https://cdn.rive.app/animations/vehicles.riv',
+                canvas: document.getElementById('canvas'),
+                autoplay: true
+            });
+        </script>
+    </body>
+</html>
+

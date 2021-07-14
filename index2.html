@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Demo: Add custom markers in Mapbox GL JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .marker1 {
+      background-image: url('assets/vandalism-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker2 {
+      background-image: url('assets/theft-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker3 {
+      background-image: url('assets/assault-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker4 {
+      background-image: url('assets/theft-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker5 {
+      background-image: url('assets/vandalism-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker6 {
+      background-image: url('assets/others-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker7 {
+      background-image: url('assets/murder-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker8 {
+      background-image: url('assets/assault-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .marker9 {
+      background-image: url('assets/others-marker.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mapboxgl-popup {
+      max-width: 200px;
+    }
+
+    .mapboxgl-popup-content {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" style=" position: relative; border-style: solid; border-color: black; height: 35vw;">
+    <div class="row">
+      <div class="col" style="overflow: scroll; height: 500px;">
+        
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-8">
+        <div id="map" style="margin: 1%; height: 80%; width: 50%; border-style: solid; border-color: black; border-radius: 2vw;">
+        </div> 
+      </div>
+    </div>
+  </div>
+  
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMiIsImEiOiJja2djMTR2YTgwOW9hMndwbWQ0dmsxNDJsIn0.5LK-j4rTxpcMAzjOWvsn4g';
+
+    var geojson = {
+      'type': 'FeatureCollection',
+      'features1': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.0196, 19.0338]
+          },
+          'properties': {
+            'title': 'Vandalism',
+            'description': 'Nerul, Navi Mumbai'
+          }
+        }
+      ],
+      'features2': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.0404, 19.0237]
+          },
+          'properties': {
+            'title': 'Theft',
+            'description': 'Belapur, Navi Mumbai'
+          }
+        }
+      ],
+      'features3': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.0699, 19.0473]
+          },
+          'properties': {
+            'title': 'Assault',
+            'description': 'Kharghar, Navi Mumbai'
+          }
+        }
+      ],
+      'features4': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [72.9978, 19.0745]
+          },
+          'properties': {
+            'title': 'Theft',
+            'description': 'Vashi, Navi Mumbai'
+          }
+        },
+      ],
+      'features5': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.1175, 18.9894]
+          },
+          'properties': {
+            'title': 'Vandalism',
+            'description': 'Panvel, Navi Mumbai'
+          }
+        },
+      ],
+      'features6': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.0175, 19.0171]
+          },
+          'properties': {
+            'title': 'Other',
+            'description': 'Seawoods, Navi Mumbai'
+          }
+        }
+      ],
+      'features7': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.052294, 18.976063]
+          },
+          'properties': {
+            'title': 'Murder',
+            'description': 'Ulwe, Navi Mumbai'
+          }
+        }
+      ],
+      'features8': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [73.0140, 19.0601]
+          },
+          'properties': {
+            'title': 'Assault',
+            'description': 'Sanpada, Navi Mumbai'
+          }
+        }
+      ],
+      'features9': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [72.9283, 18.8772]
+          },
+          'properties': {
+            'title': 'Other',
+            'description': 'Uran, Navi Mumbai'
+          }
+        }
+      ],
+      // 'features': [
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.0196, 19.0338]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Nerul, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.0404, 19.0237]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Belapur, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.0699, 19.0473]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Kharghar, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [72.9978, 19.0745]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Vashi, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.1175, 18.9894]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Panvel, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.0175, 19.0171]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Seawoods, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.052294, 18.976063]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Ulwe, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [73.0140, 19.0601]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Sanpada, Navi Mumbai'
+      //     }
+      //   },
+      //   {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Point',
+      //       'coordinates': [72.9283, 18.8772]
+      //     },
+      //     'properties': {
+      //       'title': 'Mapbox',
+      //       'description': 'Uran, Navi Mumbai'
+      //     }
+      //   }
+      // ]
+    };
+
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v10',
+      center: [73.0404, 19.0237],
+      zoom: 11.75
+    });
+
+    //   // add markers to map
+    //   geojson.features.forEach(function (marker) {
+    //     // create a HTML element for each feature
+    //     var el = document.createElement('div');
+    //     el.className = 'marker';
+
+    //     // make a marker for each feature and add it to the map
+    //     new mapboxgl.Marker(el)
+    //       .setLngLat(marker.geometry.coordinates)
+    //       .setPopup(
+    //         new mapboxgl.Popup({ offset: 25 }) // add popups
+    //           .setHTML(
+    //             '<h3>' +
+    //               marker.properties.title +
+    //               '</h3><p>' +
+    //               marker.properties.description +
+    //               '</p>'
+    //           )
+    //       )
+    //       .addTo(map);
+    //   });
+
+
+    // add markers to map
+    geojson.features1.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker1';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features2.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker2';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features3.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker3';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features4.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker4';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features5.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker5';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features6.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker6';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features7.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker7';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features8.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker8';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+
+    // add markers to map
+    geojson.features9.forEach(function (marker) {
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker9';
+
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              '<h3>' +
+              marker.properties.title +
+              '</h3><p>' +
+              marker.properties.description +
+              '</p>'
+            )
+        )
+        .addTo(map);
+    });
+  </script>
+</body>
+
+</html>

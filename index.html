@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Square</title>
+    <link rel="icon" href="assets/shield.png" type="image/icon type">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="background-color: #1D1D26; font-family: 'Work Sans', sans-serif;">
+
+    <div style="position: absolute; top: 20%; left: 33%;  border-color: white;">
+        <h1 style="color: white; font-weight:800; font-size: 8vw; margin-bottom: 0px;">C Square<span
+                style="color: #fc76a1;">.</span></h1>
+        <p style="color: #C3C3D9; text-align: center;">Interactive and dynamic crime tracking web application.</p>
+        <br>
+        <div style="color: white; text-align: center;">
+            <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
+                style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
+                up</button>
+            <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom"
+                style="background-color: #30303D; margin-left: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
+                in</button>
+        </div>
+
+
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+            aria-labelledby="offcanvasBottomLabel"
+            style="height: 55%; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
+            <div class="offcanvas-header" style="background-color: #1D1D26; border-radius: 2vw; padding-bottom: 0px;">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel" style="color: white; font-weight: 500;">Sign up
+                </h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" style="color: white;"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small" style="background-color: #1D1D26; overflow: hidden;">
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <input style="background-color: #1D1D26; color:white;" type="name" class="form-control"
+                                    id="name" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input style="background-color: #1D1D26; color:white;" type="lname" class="form-control"
+                                    id="lname" placeholder="Last Name">
+                            </div>
+                            <div class="col-12">
+                                <input style="background-color: #1D1D26; color:white;" type="email" class="form-control"
+                                    id="email" placeholder="Email">
+                            </div>
+                            <div class="col-12">
+                                <input style="background-color: #1D1D26; color:white;" type="password"
+                                    class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="col-12">
+                                <input style="background-color: #1D1D26; color:white;" type="password"
+                                    class="form-control" id="cpassword" placeholder="Confirm Password">
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-grid gap-2">
+                                    <!-- <a href="user.php" style="border-radius: 2vw" class="btn" style="background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c);"
+                                        type="button">Create Account</a> -->
+                                    <br>
+                                    <a href="user.php" type="button" class="btn btn-lg hover-item"
+                                        style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Create
+                                        Account</a>
+                                    <!-- <br>
+                                    <a href="user.php" style="background-color: white; border-color: #D9D9DB"
+                                        class="btn" type="button"><img src="logos/facebook.png">&nbsp&nbspSign up with
+                                        Facebook</a>
+                                    <a href="user.php" style="background-color: white; border-color: #D9D9DB"
+                                        class="btn" type="button"><img src="logos/google.png">&nbsp&nbspSign up with
+                                        Google</a> -->
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="col-12">
+                            <!-- <p style="text-align:right; font-size: 13px; color: #3D3D3D">Already have an account? <a
+                                    href="" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                                    data-bs-dismiss="modal">Sign In</a> </p> -->
+                        </div>
+
+                        <div class="col-12" style="text-align: center;">
+                            <img class="img-fluid" src="assets/signup2.png" style="height: 375px; width:375px;">
+                        </div>
+
+                        <div class="col-12">
+
+                            <!-- <p style="text-align:center; font-size: 11px; color: black; opacity: 0.6">By signing up, you
+                                agree to our Terms & conditions, Privacy policy</p> -->
+                        </div>
+
+
+                    </div>
+                </div>
+                <!---->
+
+
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom2"
+            aria-labelledby="offcanvasBottomLabel"
+            style="height: 55%; width: 25%; left: 38% ; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
+            <div class="offcanvas-header" style=" background-color: #1D1D26; border-radius: 2vw;">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel" style="color: white; font-weight: 500;">Sign in
+                </h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" style="color: white;"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small" style="background-color: #1D1D26; overflow: hidden;">
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <form class="row g-3">
+                            <div class="col-12">
+                                <input style="background-color: #1D1D26; color:white;" type="email" class="form-control"
+                                    id="email" placeholder="Email">
+                            </div>
+                            <div class="col-12">
+                                <input style="background-color: #1D1D26; color:white;" type="password"
+                                    class="form-control" id="password" placeholder="Password">
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <br>
+                                    <a href="user.php" class="btn btn-lg hover-item"
+                                        style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;"
+                                        type="button">Sign In</a>
+                                    <!-- <br>
+                                    <a href="user.php" style="background-color: white; border-color: #D9D9DB"
+                                        class="btn" type="button"><img src="logos/facebook.png">&nbsp&nbspSign in with
+                                        Facebook</a>
+                                    <a href="user.php" style="background-color: white; border-color: #D9D9DB"
+                                        class="btn" type="button"><img src="logos/google.png">&nbsp&nbspSign in with
+                                        Google</a>
+                                    <br> -->
+                                    
+                                    <br>
+                                    <a href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" style="margin-left: 20%; font-weight: 500; font-size: 12px; color: #fc76a1;">Create account</a>
+
+                                </div>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                    <!---->
+
+
+                </div>
+            </div>
+
+            <style>
+                .hover-item {
+                    transition: 0.3s;
+                }
+
+                .hover-item:hover {
+                    transform: translate(0, -5px);
+                }
+
+                .form-control {
+                    border: 2px solid #1D1D26;
+                }
+
+                .form-control:hover {
+
+                    border-color: #fc76a1;
+                }
+            </style>
+
+
+
+        </div>
+</body>
+
+</html>
