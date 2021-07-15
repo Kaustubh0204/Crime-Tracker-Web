@@ -25,26 +25,27 @@
 <body style="background-color: #1D1D26; font-family: 'Work Sans', sans-serif;">
 
     <!-- Banner -->
-    <div style="position: absolute; top: 20%; left: 33%;  border-color: white;">
+    <div id="banner" style="text-align: center;">
         <h1 style="color: white; font-weight:800; font-size: 8vw; margin-bottom: 0px;">C Square<span
-                style="color: #fc76a1;">.</span></h1>
-        <p style="color: #C3C3D9; text-align: center;">Interactive and dynamic crime tracking web application.</p>
-        <br>
-        <div style="color: white; text-align: center;">
-            <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
-                style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
-                up</button>
-            <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom"
-                style="background-color: #30303D; margin-left: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
-                in</button>
-        </div>
+            style="color: #fc76a1;">.</span></h1>
+            <p style="color: #C3C3D9; text-align: center;">Interactive and dynamic crime tracking web application.</p>
+            <br>
+            <div style="color: white; text-align: center;">
+                <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
+                    style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
+                    up</button>
+                <button type="button" class="btn btn-lg hover-item" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom"
+                    style="background-color: #30303D; margin-left: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Sign
+                    in</button>
+            </div>
+    </div>
 
         <!--Sign up slider-->
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
             aria-labelledby="offcanvasBottomLabel"
-            style="height: 55%; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
+            style="height: 55%; max-width: 122.608vw; background-color: #1D1D26; margin-left: 1vw; margin-right: 1vw; border-radius: 2vw;">
             <div class="offcanvas-header" style="background-color: #1D1D26; border-radius: 2vw; padding-bottom: 0px;">
                 <h5 class="offcanvas-title" id="offcanvasBottomLabel" style="color: white; font-weight: 500;">Sign up
                 </h5>
@@ -179,7 +180,7 @@
 
 
 
-    
+
         <!-- Success Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -208,6 +209,18 @@
 
 
         <style>
+            #banner {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                width: 40em;
+                height: 18em;
+                margin-top: -9em;
+                margin-left: -20em;
+                border: 1px solid #1D1D26;
+                background-color: #1D1D26;
+            }
+
             .hover-item {
                 transition: 0.3s;
             }
