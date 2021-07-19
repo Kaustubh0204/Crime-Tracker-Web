@@ -23,7 +23,7 @@
     <!--Map Box-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-
+    <script src="test3.js"></script>
 </head>
 
 <body style="background-color: #181820; font-family: 'Work Sans', sans-serif; max-width: 1900px;">
@@ -447,6 +447,14 @@
             .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
                 border-left-color: #FC76A1
             }
+
+            .policemarker {
+            background-image: url('assets/police-station.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px; 
+            cursor: pointer;
+        }
         </style>
 
         <script>
@@ -767,66 +775,44 @@
                 });
             });
 
-            //     map.on('load', function () {
-            //     map.addSource('earthquakes', {
-            //         type: 'geojson',
-            //         // Use a URL for the value for the `data` property.
-            //         data: 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
-            //     });
+        //     map.on('load', function () {
+        //     map.addSource('earthquakes', {
+        //         type: 'geojson',
+        //         // Use a URL for the value for the `data` property.
+        //         data: 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
+        //     });
 
-            //     map.addLayer({
-            //         'id': 'earthquakes-layer',
-            //         'type': 'circle',
-            //         'source': 'earthquakes',
-            //         'paint': {
-            //             'circle-radius': 8,
-            //             'circle-stroke-width': 2,
-            //             'circle-color': 'red',
-            //             'circle-stroke-color': 'white',
-            //             // 'symbol': 'assets/police-station.png'
+        //     map.addLayer({
+        //         'id': 'earthquakes-layer',
+        //         'type': 'circle',
+        //         'source': 'earthquakes',
+        //         'paint': {
+        //             'circle-radius': 8,
+        //             'circle-stroke-width': 2,
+        //             'circle-color': 'red',
+        //             'circle-stroke-color': 'white',
+        //             // 'symbol': 'assets/police-station.png'
+                    
+        //         }
+        //     });
 
-            //         }
-            //     });
-            // });
+            
 
-            map.on('load', function () {
-                map.loadImage("https://i.imgur.com/AMhXOvd.png", function (error, image) { //this is where we load the image file 
-                    if (error) throw error;
-                    map.addImage("custom-marker", image); //this is where we name the image file we are loading 
-                    map.addLayer({
-                        'id': "markers", //this is the name of the layer, it is what we will reference below 
-                        'type': "symbol",
-                        'source': { //now we are adding the source to the layer more directly and cleanly 
-                            type: "geojson",
-                            data: 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
-                        },
-                        'layout': {
-                            "icon-image": "custom-marker", // the name of image file we used above
-                            "icon-allow-overlap": false,
-                            "icon-size": 1 //this is a multiplier applied to the standard size. So if you want it half the size put ".5"
-                        }
-                    })
-                })
+        // });
 
-            })
+        // add markers to map
+        geojson1.features.forEach(function (marker) {
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'policemarker';
 
-            map.on('click', function (e) {
-                var features = map.queryRenderedFeatures(e.point, {
-                    layers: ['markers'] // replace this with the name of the layer
-                });
+            // make a marker for each feature and add it to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
 
-                if (!features.length) {
-                    return;
-                }
-
-                var feature = features[0];
-
-                var popup = new mapboxgl.Popup({ offset: [0, -15] })
-                    .setLngLat(feature.geometry.coordinates)
-                    .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>ID: ' + feature.properties.id + '</h6><h6>State code: ' + feature.properties.state_code + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
-                    .setLngLat(feature.geometry.coordinates)
-                    .addTo(map);
-            });
+                .addTo(map);
+        });
+        
 
         </script>
 
