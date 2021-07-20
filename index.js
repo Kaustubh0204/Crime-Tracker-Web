@@ -7,7 +7,7 @@ function login() {
       var user = firebase.auth().currentUser;
   
     } else {
-      window.alert("Logged Out");
+      // window.alert("Logged Out");
     }
   });
   
