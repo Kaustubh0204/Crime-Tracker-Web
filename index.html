@@ -20,6 +20,8 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/996973c893.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
 </head>
 
 <body style="background-color: #1D1D26; font-family: 'Work Sans', sans-serif; max-width: 1900px;">
@@ -73,11 +75,11 @@
                                 </div>
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="email"
-                                        class="form-control" id="email" placeholder="Email">
+                                        class="form-control" id="signupemail" placeholder="Email">
                                 </div>
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="password"
-                                        class="form-control" id="password" placeholder="Password">
+                                        class="form-control" id="signuppassword" placeholder="Password">
                                 </div>
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="password"
@@ -88,9 +90,10 @@
                                     <div class="d-grid gap-2">
                                         <!-- <a href="user.php" style="border-radius: 2vw" class="btn" style="background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c);"
                                         type="button">Create Account</a> -->
-                                        <br>
-                                        <a href="#" type="button" class="btn btn-lg hover-item" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal" data-bs-dismiss="offcanvas"
+                                        <br> 
+                                        <!-- class="btn btn-lg hover-item" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-dismiss="offcanvas" -->
+                                        <a  onclick="signup()" type="button" class="btn btn-lg hover-item" 
                                             style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Create
                                             Account</a>
                                         <!-- <br>
@@ -100,6 +103,7 @@
                                     <a href="user.php" style="background-color: white; border-color: #D9D9DB"
                                         class="btn" type="button"><img src="logos/google.png">&nbsp&nbspSign up with
                                         Google</a> -->
+
 
                                     </div>
                                 </div>
@@ -127,6 +131,9 @@
                 </div>
             </div>
 
+
+
+
             <!--Sign in slider-->
             <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom2"
                 aria-labelledby="offcanvasBottomLabel"
@@ -143,23 +150,23 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <form class="row g-3">
+                            <form class="row g-3" id="login_div">
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="email"
-                                        class="form-control" id="email" placeholder="Email">
+                                        class="form-control" id="loginemail" placeholder="Email">
                                 </div>
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="password"
-                                        class="form-control" id="password" placeholder="Password">
+                                        class="form-control" id="loginpassword" placeholder="Password">
                                 </div>
 
 
                                 <div class="col-12">
                                     <div class="d-grid gap-2 col-6 mx-auto">
                                         <br>
-                                        <a href="home.html" class="btn btn-lg hover-item"
+                                        <a  onclick="login()" class="btn btn-lg hover-item"
                                             style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;"
-                                            type="button">Sign In</a>
+                                            type="submit">Sign In</a>
                                         <!-- <br>
                                     <a href="user.php" style="background-color: white; border-color: #D9D9DB"
                                         class="btn" type="button"><img src="logos/facebook.png">&nbsp&nbspSign in with
@@ -170,9 +177,9 @@
                                     <br> -->
 
                                         <br>
-                                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                        <a  data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
                                             aria-controls="offcanvasBottom"
-                                            style="margin-left: 20%; font-weight: 500; font-size: 12px; color: #fc76a1;">Create
+                                            style="margin-left: 20%; font-weight: 500; font-size: 12px; color: #fc76a1; cursor: pointer;">Create
                                             account</a>
 
                                     </div>
@@ -247,13 +254,14 @@
         </template>
 
         <template class="ad__mobile" style="overflow: hidden;">
-            
+
             <!-- Banner -->
             <div id="banner2" style="text-align: center;">
                 <h1 style="color: white; font-weight:800; font-size: 15vw; margin-bottom: 0px;">C Square<span
                         style="color: #fc76a1;">.</span></h1>
-                        <hr style="color: #C3C3D9; width: 50%; margin-left: 25%;">
-                <p style="color: #C3C3D9; text-align: center; font-size: 3.7vw;">Please switch to a bigger screen<br> for further access
+                <hr style="color: #C3C3D9; width: 50%; margin-left: 25%;">
+                <p style="color: #C3C3D9; text-align: center; font-size: 3.7vw;">Please switch to a bigger screen<br>
+                    for further access
                 </p>
             </div>
 
@@ -292,7 +300,7 @@
 
     </cool-ad>
 
- 
+
 
     <script>
         class AdComponent extends HTMLElement {
@@ -309,6 +317,23 @@
 
         customElements.define('cool-ad', AdComponent);
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
+            authDomain: "crime-mapping-7610d.firebaseapp.com",
+            projectId: "crime-mapping-7610d",
+            storageBucket: "crime-mapping-7610d.appspot.com",
+            messagingSenderId: "928787398601",
+            appId: "1:928787398601:web:56f96b0e2a1b41aee47218",
+            measurementId: "G-KW51ES0TGV"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="index.js"></script>
 
 
 </body>
