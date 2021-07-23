@@ -1,67 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-
-
-   
-
-</head>
-
-<body>
-<!-- 
-    <div  class="container">
-
-        
-
-    </div> -->
-
-    <div id="getdata" class="row" style="margin-left: 200px; margin-right: 100px;">
-        
-        </div>
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo: Add custom markers in Mapbox GL JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .marker {
+        background-image: url('assets/danger.svg');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .mapboxgl-popup {
+        max-width: 200px;
+      }
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
 
     <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
-            authDomain: "crime-mapping-7610d.firebaseapp.com",
-            projectId: "crime-mapping-7610d",
-            storageBucket: "crime-mapping-7610d.appspot.com",
-            messagingSenderId: "928787398601",
-            appId: "1:928787398601:web:56f96b0e2a1b41aee47218",
-            measurementId: "G-KW51ES0TGV"
-        };
-        firebase.initializeApp(config);
+      mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
 
-        // firebase.initializeApp({
-        //     apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
-        //     authDomain: "crime-mapping-7610d.firebaseapp.com",
-        //     projectId: "crime-mapping-7610d",
-        // });
-
-        // var db = firebase.firestore();
 
     </script>
-     <script src="test.js"></script>
-
-</body>
-
+  </body>
 </html>
