@@ -1,3 +1,7 @@
+
+
+
+
 function login() {
 
   firebase.auth().onAuthStateChanged(function (user) {
@@ -29,6 +33,8 @@ function login() {
 }
 
 
+
+
 function signup() {
 
   var userEmail = document.getElementById("signupemail").value;
@@ -55,9 +61,8 @@ function signup() {
       // ..
     });
 
-    
-
 }
+
 
 
 // document.getElementById("gotologin").style.display = "none";

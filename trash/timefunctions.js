@@ -1,0 +1,10 @@
+const currentDate = new Date();
+const timestamp = currentDate.getTime();
+const hour    = currentDate.getHours();
+const minute  = currentDate.getMinutes();
+const second  = currentDate.getSeconds();
+const currentDayOfMonth = currentDate.getDate();
+const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+const currentYear = currentDate.getFullYear();
+const dateString = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
+// const caseids = hour.toString() + minute.toString() + second.toString();  
