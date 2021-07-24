@@ -45,9 +45,9 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item">
-                        <img src="assets/profilepic.png" type="button" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" style="margin: 0.2vw; height: 35px; width: 35px;">
+                    <li class="nav-item" id="profilepicicon">
+                        <!-- <img src="assets/profilepic.png" type="button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" style="margin: 0.2vw; height: 35px; width: 35px;"> -->
                     </li>
 
                 </ul>
@@ -125,7 +125,19 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="background-color: #1D1D26; text-align: center; ">
-                        <img src="assets/profilepic.png" style="margin: 0.2vw; height: 200px; width: 200px;">
+
+                        <div id="profilemodal">
+                            
+                        </div>
+                        
+                        <!-- <img id="img" src="assets/profilepic.png"
+                            style="margin: 0.2vw; height: 200px; width: 200px; border-radius: 50%;"> -->
+                        <!-- <input type="file" class="btn btn-primary">hi</input> -->
+                        <label for="file" class="btn" style="position: absolute; top: 41%; right: 33%;"><img
+                                src="assets/uploadimage.png"></label>
+                        <input type="file" id="file" style="display:none">
+
+                        <p id="pleasewait" style="color: #FC76A1; font-size: 12px;"></p>
 
                         <div style="height: 20px;"></div>
                         <ul class="list-group list-group-flush">
@@ -153,6 +165,61 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            const file = document.getElementById("file")
+            const img = document.getElementById("img")
+            const url = document.getElementById("url")
+            file.addEventListener("change", ev => {
+
+                const pleasewait = document.querySelector("#pleasewait")
+                pleasewait.innerHTML += '<br><br>Please wait for another 10 seconds<br>while we update your profile picture.'
+
+                const formdata = new FormData()
+                formdata.append("image", ev.target.files[0])
+                fetch("https://api.imgur.com/3/image/", {
+                    method: "post",
+                    headers: {
+                        Authorization: "Client-ID 580de07a0898c59"
+                    },
+                    body: formdata
+                }).then(data => data.json()).then(data => {
+                    // img.src = data.data.link
+                    console.log(data.data.link);
+
+                    firebase.auth().onAuthStateChanged(function (user) {
+
+                        db.collection("police").where("email", "==", user.email)
+                            .get()
+                            .then((querySnapshot) => {
+                                querySnapshot.forEach((doc) => {
+
+
+
+                                    var currentdoc = doc.id;
+                                    db.collection('police').doc(currentdoc).update({
+
+                                        photo: data.data.link
+                                    });
+
+                                });
+                            })
+
+
+
+
+
+                    });
+
+                    setTimeout(function () {
+                        window.location.reload(1);
+                    }, 5000);
+
+                })
+            })
+
+
+        </script>
 
 
         <style>

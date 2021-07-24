@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+</head>
+<body>
+
+  <div>
+    <input type="email" placeholder="Email..." id="email" />
+    <input type="password" placeholder="Password..." id="password" />
+
+    <button onclick="login()">Login to Account</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
+            authDomain: "crime-mapping-7610d.firebaseapp.com",
+            projectId: "crime-mapping-7610d",
+            storageBucket: "crime-mapping-7610d.appspot.com",
+            messagingSenderId: "928787398601",
+            appId: "1:928787398601:web:56f96b0e2a1b41aee47218",
+            measurementId: "G-KW51ES0TGV"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="index.js"></script>
+
+</body>
+</html>
