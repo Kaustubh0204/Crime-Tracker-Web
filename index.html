@@ -73,19 +73,39 @@
                             <form class="row g-3">
                                 <div class="col-md-6">
                                     <input style="background-color: #1D1D26; color:white;" type="name"
-                                        class="form-control" id="name" placeholder="First Name">
+                                        class="form-control" id="signupname" placeholder="First Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <input style="background-color: #1D1D26; color:white;" type="lname"
-                                        class="form-control" id="lname" placeholder="Last Name">
+                                        class="form-control" id="signuplname" placeholder="Last Name">
                                 </div>
-                                <div class="col-12">
+
+                                <div class="col-6">
                                     <input style="background-color: #1D1D26; color:white;" type="email"
                                         class="form-control" id="signupemail" placeholder="Email">
                                 </div>
-                                <div class="col-12">
+                                <div class="col-6">
+                                    <input style="background-color: #1D1D26; color:white;" class="form-control"
+                                        id="signupphoneno" placeholder="Conatact Number">
+                                </div>
+
+                                <div class="col-6">
                                     <input style="background-color: #1D1D26; color:white;" type="password"
                                         class="form-control" id="signuppassword" placeholder="Password">
+                                </div>
+                                <div class="col-6">
+                                    <!-- <input style="background-color: #1D1D26; color:white;" 
+                                        class="form-control" id="signuppost" placeholder="Post"> -->
+                                    <select id="signuppost" style="background-color: #1D1D26;" class="form-select text-muted"
+                                        aria-label="Default select example" >
+                                        <option selected >Post</option>
+                                        <option value="Commissioner of Police" style="color: white;">Commissioner of Police</option>
+                                        <option value="Superintendent of Police" style="color: white;">Superintendent of Police</option>
+                                        <option value="Inspector of Police" style="color: white;">Inspector of Police</option>
+                                        <option value="Sergeant Major" style="color: white;">Sergeant Major</option>
+                                        <option value="Corporal" style="color: white;">Corporal</option>
+                                        <option value="Constable" style="color: white;">Constable</option>
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <input style="background-color: #1D1D26; color:white;" type="password"
@@ -99,7 +119,7 @@
                                         <br>
                                         <!-- class="btn btn-lg hover-item" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" data-bs-dismiss="offcanvas" -->
-                                        <a onclick="signup()" type="button" class="btn btn-lg hover-item zoro"
+                                        <a onclick="signup()" type="submit" class="btn btn-lg hover-item zoro"
                                             style="border-color:#1D1D26; background-image: linear-gradient(to top right, #bb3fdd, #fb6da9, #ff9f7c); margin-right: 1vw; border-radius: 1vw; color: white; font-weight: 400;">Create
                                             Account</a>
                                         <!-- <br>
@@ -237,8 +257,7 @@
                                 Error</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body"
-                            style="background-color: #1D1D26; text-align: center; color: #fc76a1">
+                        <div class="modal-body" style="background-color: #1D1D26; text-align: center; color: #fc76a1">
                             <i style="font-size: 7vw;" class="fas fa-exclamation-triangle"></i>
                             <br><br>
                             <p id="error" style="color: #fc76a1"></p>
@@ -257,35 +276,34 @@
                 </div>
             </div>
 
-                       <!-- failure 2 Modal -->
-                       <div class="modal fade" id="failuremodal2" tabindex="-1" aria-labelledby="exampleModalLabel">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
-                                <div class="modal-header"
-                                    style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw; ">
-                                    <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">
-                                        Error</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body"
-                                    style="background-color: #1D1D26; text-align: center; color: #fc76a1">
-                                    <i style="font-size: 7vw;" class="fas fa-exclamation-triangle"></i>
-                                    <br><br>
-                                    <p id="error2" style="color: #fc76a1"></p>
-                                </div>
-                                <div
-                                    style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
-                                    <br>
-                                    <button data-bs-dismiss="modal" type="button" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom"
-                                        class="btn-lg hover-item"
-                                        style="background-color: #fc76a1; border-color: #fc76a1; font-weight: 500; color: white; border-radius: 1vw;">Try
-                                        Again</button>
-        
-                                </div>
-                            </div>
+            <!-- failure 2 Modal -->
+            <div class="modal fade" id="failuremodal2" tabindex="-1" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
+                        <div class="modal-header"
+                            style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw; ">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">
+                                Error</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="background-color: #1D1D26; text-align: center; color: #fc76a1">
+                            <i style="font-size: 7vw;" class="fas fa-exclamation-triangle"></i>
+                            <br><br>
+                            <p id="error2" style="color: #fc76a1"></p>
+                        </div>
+                        <div
+                            style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
+                            <br>
+                            <button data-bs-dismiss="modal" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom"
+                                class="btn-lg hover-item"
+                                style="background-color: #fc76a1; border-color: #fc76a1; font-weight: 500; color: white; border-radius: 1vw;">Try
+                                Again</button>
+
                         </div>
                     </div>
+                </div>
+            </div>
 
             <style>
                 #banner {
@@ -313,6 +331,15 @@
                 .form-control {
                     border: 2px solid #1D1D26;
                 }
+
+                .form-select{
+                    border: 2px solid #1D1D26;
+                }
+
+                .form-select:hover {
+                    border-color: #fc76a1;
+                }
+
 
                 .form-control:hover {
 

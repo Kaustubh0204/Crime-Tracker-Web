@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg"
         style="background-color: #1D1D27; box-shadow: 0px 8px 8px -6px rgba(0,0,0,.25);">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color: #FC76A1; font-weight: 700;">C Square</a>
+            <a class="navbar-brand" style="color: #FC76A1; font-weight: 700;">C Square Beta</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -46,19 +46,11 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a href="home2.html">
-                        <img src="assets/firebase.png" type="button" style="background-color: #039BE5; padding: 3px; 
-                            border-radius: 1vw; margin: 0.2vw; margin-right: 1vw; height: 35px; width: 35px;"></a>
-                    </li>
-                    <li class="nav-item">
                         <img src="assets/profilepic.png" type="button" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" style="margin: 0.2vw; height: 35px; width: 35px;">
                     </li>
+
                 </ul>
-                <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
             </div>
         </div>
     </nav>
@@ -109,245 +101,13 @@
         </div>
 
         <br>
-        <div class="row"
-            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 1vw; border-radius: 2vw;">
+
+        <div class="row" id="userreports"
+            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 1vw; border-radius: 2vw; overflow: visible;">
             <h5 style="color: white;">Recent Cases</h5>
             <br>
             <br>
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        
-                        <div class="row" style="margin-left: 200px; margin-right: 100px;">
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #001 <a href="#map" id="fly"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Vandalism</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Kaustubh Utturwar
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Nerul,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Bunch of
-                                            people wrecking a cycle store.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #002 <a href="#map" id="fly2"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Theft</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Darshan Rao
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Belapur,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Pickpocketed.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #003 <a href="#map" id="fly3"
-                                            style=" background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Assault</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Sumit Singh
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Kharghar,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Mob lynching
-                                            in public.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="carousel-item ">
-
-                        <div class="row" style="margin-left: 200px; margin-right: 100px;">
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #004 <a href="#map" id="fly4"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Theft</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Harsh Singh
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Vashi,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Mobile
-                                            (OnePlus 6T) got stolen form public bus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #005 <a href="#map" id="fly5"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Vandalism</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Mehul Sonavane
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Panvel,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Intense
-                                            public riots.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #006 <a href="#map" id="fly6"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Other</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Anuj Patil
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Seawoods,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Fake traffic
-                                            police men spotted.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-
-                        <div class="row" style="margin-left: 200px; margin-right: 100px;">
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #007 <a href="#map" id="fly7"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Murder</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Harshvardhan Vhatkar
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Ulwe, Navi
-                                            Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Dead body
-                                            spotted inside ATM.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #008 <a href="#map" id="fly8"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Assault</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Tejas Shroff
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Sanpada,
-                                            Navi Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Couple of
-                                            people fighting.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card text-white bg-dark mb-3"
-                                    style="max-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;">
-                                    <div class="card-header"><i class="fas fa-exclamation-triangle"
-                                            style="color: #FC76A1;"></i> Case ID #009 <a href="#map" id="fly9"
-                                            style="background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;"><i
-                                                class="fas fa-crosshairs"></i></a></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-skull" style="color: #FC76A1;"></i>
-                                            Other</h5>
-                                        <hr>
-                                        <p class="card-text"><i class="fas fa-user" style="color: #FC76A1;"></i>
-                                            Tejas Shelke
-                                            <hr><i class="fas fa-phone" style="color: #FC76A1;"></i> +91 9876543210
-                                            <hr><i class="fas fa-map-marker-alt" style="color: #FC76A1;"></i> Uran, Navi
-                                            Mumbai
-                                            <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Bride
-                                            kidnapped.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <div class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next" style="z-index: 0;">
-                        <span class="carousel-control-next-icon" aria-hidden="true"
-                            style="border-color: white; "></span>
-                        <span class="visually-hidden">Next</span>
-                    </div>
-                </div>
-
-
-            </div>
-            <br>
         </div>
 
         <br>
@@ -370,13 +130,15 @@
                         <div style="height: 20px;"></div>
                         <ul class="list-group list-group-flush">
                             <li style="background-color: #1D1D26; color: #FC76A1; font-size: 20px; font-weight: 600;"
-                                class="list-group-item">Kaustubh Utturwar</li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item">Sub Inspector
+                                class="list-group-item" id="profilename"></li>
+                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
+                                id="profilepost">
                             </li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item">
-                                k.utturwar@gmail.com</li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item">+91
-                                7066695395
+                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
+                                id="profileemail">
+                            </li>
+                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
+                                id="profilephoneno">
                             </li>
                         </ul>
 
@@ -463,336 +225,6 @@
                 zoom: 6.5
             });
 
-            document.getElementById('fly').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.0196, 19.0338
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly2').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.0404, 19.0237
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly3').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.0699, 19.0473
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly4').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        72.9978, 19.0745
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly5').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.1175, 18.9894
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly6').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.0175, 19.0171
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly7').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.052294, 18.976063
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly8').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        73.0140, 19.0601
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-            document.getElementById('fly9').addEventListener('click', function () {
-                map.flyTo({
-                    center: [
-                        72.9283, 18.8772
-                    ],
-                    essential: true,
-                    zoom: 15
-                });
-            });
-
-            var geojson = {
-                'type': 'FeatureCollection',
-                'features': [
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.0196, 19.0338]
-                        },
-                        'properties': {
-                            'title': 'Vandalism',
-                            'description': 'Nerul, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.0404, 19.0237]
-                        },
-                        'properties': {
-                            'title': 'Theft',
-                            'description': 'Belapur, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.0699, 19.0473]
-                        },
-                        'properties': {
-                            'title': 'Assault',
-                            'description': 'Kharghar, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [72.9978, 19.0745]
-                        },
-                        'properties': {
-                            'title': 'Theft',
-                            'description': 'Vashi, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.1175, 18.9894]
-                        },
-                        'properties': {
-                            'title': 'Vandalism',
-                            'description': 'Panvel, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.0175, 19.0171]
-                        },
-                        'properties': {
-                            'title': 'Other',
-                            'description': 'Seawoods, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.052294, 18.976063]
-                        },
-                        'properties': {
-                            'title': 'Murder',
-                            'description': 'Ulwe, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [73.0140, 19.0601]
-                        },
-                        'properties': {
-                            'title': 'Assault',
-                            'description': 'Sanpada, Navi Mumbai'
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [72.9283, 18.8772]
-                        },
-                        'properties': {
-                            'title': 'Other',
-                            'description': 'Uran, Navi Mumbai'
-                        }
-                    }
-                ]
-            };
-
-            // add markers to map
-            geojson.features.forEach(function (marker) {
-                // create a HTML element for each feature
-                var el = document.createElement('div');
-                el.className = 'marker';
-
-                // make a marker for each feature and add it to the map
-                new mapboxgl.Marker(el)
-                    .setLngLat(marker.geometry.coordinates)
-                    .setPopup(
-                        new mapboxgl.Popup({ offset: 25 }) // add popups
-                            .setHTML(
-                                '<h5>' +
-                                marker.properties.title +
-                                '</h5><hr><h6><i class="fas fa-map-marker"></i> ' +
-                                marker.properties.description +
-                                '</h6>'
-                            )
-                    )
-                    .addTo(map);
-            });
-
-            var size = 200;
-
-            // This implements `StyleImageInterface`
-            // to draw a pulsing dot icon on the map.
-            var pulsingDot = {
-                width: size,
-                height: size,
-                data: new Uint8Array(size * size * 4),
-
-                // When the layer is added to the map,
-                // get the rendering context for the map canvas.
-                onAdd: function () {
-                    var canvas = document.createElement('canvas');
-                    canvas.width = this.width;
-                    canvas.height = this.height;
-                    this.context = canvas.getContext('2d');
-                },
-
-                // Call once before every frame where the icon will be used.
-                render: function () {
-                    var duration = 1000;
-                    var t = (performance.now() % duration) / duration;
-
-                    var radius = (size / 2) * 0.3;
-                    var outerRadius = (size / 2) * 0.7 * t + radius;
-                    var context = this.context;
-
-                    // Draw the outer circle.
-                    context.clearRect(0, 0, this.width, this.height);
-                    context.beginPath();
-                    context.arc(
-                        this.width / 2,
-                        this.height / 2,
-                        outerRadius,
-                        0,
-                        Math.PI * 2
-                    );
-                    context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
-                    context.fill();
-
-                    // Draw the inner circle.
-                    context.beginPath();
-                    context.arc(
-                        this.width / 2,
-                        this.height / 2,
-                        radius,
-                        0,
-                        Math.PI * 2
-                    );
-                    context.fillStyle = 'rgba(255, 100, 100, 1)';
-                    context.strokeStyle = 'white';
-                    context.lineWidth = 2 + 4 * (1 - t);
-                    context.fill();
-                    context.stroke();
-
-                    // Update this image's data with data from the canvas.
-                    this.data = context.getImageData(
-                        0,
-                        0,
-                        this.width,
-                        this.height
-                    ).data;
-
-                    // Continuously repaint the map, resulting
-                    // in the smooth animation of the dot.
-                    map.triggerRepaint();
-
-                    // Return `true` to let the map know that the image was updated.
-                    return true;
-                }
-            };
-
-            map.on('load', function () {
-                map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-
-                map.addSource('dot-point', {
-                    'type': 'geojson',
-                    'data': {
-                        'type': 'FeatureCollection',
-                        'features': [
-                            {
-                                'type': 'Feature',
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [73.0196, 19.0338] // icon position [lng, lat]
-                                }
-                            }
-                        ]
-                    }
-                });
-                map.addLayer({
-                    'id': 'layer-with-pulsing-dot',
-                    'type': 'symbol',
-                    'source': 'dot-point',
-                    'layout': {
-                        'icon-image': 'pulsing-dot'
-                    }
-                });
-            });
-
-            //     map.on('load', function () {
-            //     map.addSource('earthquakes', {
-            //         type: 'geojson',
-            //         // Use a URL for the value for the `data` property.
-            //         data: 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
-            //     });
-
-            //     map.addLayer({
-            //         'id': 'earthquakes-layer',
-            //         'type': 'circle',
-            //         'source': 'earthquakes',
-            //         'paint': {
-            //             'circle-radius': 8,
-            //             'circle-stroke-width': 2,
-            //             'circle-color': 'red',
-            //             'circle-stroke-color': 'white',
-            //             // 'symbol': 'assets/police-station.png'
-
-            //         }
-            //     });
-            // });
 
             map.on('load', function () {
                 map.loadImage("https://i.imgur.com/AMhXOvd.png", function (error, image) { //this is where we load the image file 
@@ -835,6 +267,8 @@
 
         </script>
 
+
+
         <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
         <script>
             // Initialize Firebase
@@ -848,8 +282,11 @@
                 measurementId: "G-KW51ES0TGV"
             };
             firebase.initializeApp(config);
-        </script>   
+        </script>
+
         <script src="logout.js"></script>
+        <script src="report.js"></script>
+        <script src="index.js"></script>
 
 </body>
 

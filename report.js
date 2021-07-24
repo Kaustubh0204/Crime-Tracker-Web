@@ -9,23 +9,14 @@ db.collection("report").get().then((querySnapshot) => {
         var el = document.createElement('div');
         el.className = 'marker';
         var marker = new mapboxgl.Marker(el)
-
-
-
             .setLngLat([doc.data().location.longitude, doc.data().location.latitude])
             .setPopup(new mapboxgl.Popup().setHTML("<h5>Case ID #" + doc.data().caseid + "</h5><hr><h6 style='text-align: left'><i class='fas fa-skull-crossbones'></i> " + doc.data().crimeType + "</h6>" + "<h6 style='text-align: left'><i class='fas fa-phone-alt'></i> +91 " + doc.data().phoneNo + "</h6>" + "<h6 style='text-align: left'><i class='fas fa-map-pin'></i> " + doc.data().location.latitude + " | " + doc.data().location.longitude + "</h6>"))
             .addTo(map);
 
-
-        // print(doc.data().location.latitude)
-        console.log(doc.data().location.latitude);
-
-
     });
 });
 
-// var lon = 73.0196;
-// var lat = 19.0338;
+
 
 function reply_click(clicked_id) {
 
@@ -38,11 +29,6 @@ function reply_click(clicked_id) {
                 console.log(doc.id, " => ", doc.data());
                  var lat = doc.data().location.latitude;
                  var lon = doc.data().location.longitude;
-
-
-                
-
-
 
                 // document.getElementById(clicked_id).addEventListener('click', function () {
                     map.flyTo({
@@ -61,22 +47,6 @@ function reply_click(clicked_id) {
             console.log("Error getting documents: ", error);
         });
 }
-
-
-// db.collection("report").where("caseid", "==", 1)
-//     .get()
-//     .then((querySnapshot) => {
-//         querySnapshot.forEach((doc) => {
-//             // doc.data() is never undefined for query doc snapshots
-//             console.log(doc.id, " => ", doc.data());
-//         });
-//     })
-//     .catch((error) => {
-//         console.log("Error getting documents: ", error);
-//     });
-
-// var long = 73.0196;
-// var lat = 19.0338;
 
 
 
