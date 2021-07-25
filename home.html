@@ -26,7 +26,8 @@
 
 </head>
 
-<body style="background-color: #181820; font-family: 'Work Sans', sans-serif; max-width: 1900px;">
+<body onload="switchLayer('dark-v10')"
+    style="background-color: #181820; font-family: 'Work Sans', sans-serif; max-width: 1900px;">
 
     <nav class="navbar navbar-expand-lg"
         style="background-color: #1D1D27; box-shadow: 0px 8px 8px -6px rgba(0,0,0,.25);">
@@ -96,6 +97,35 @@
                 <div id="map" class="container" style="margin-top: 1vw; width: 95%; height: 620px; border-radius: 2vw;">
                 </div>
 
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="reloadPage()" type="button" class="btn btn-primary">Dark</button>
+                    <button onclick="switchLayer('streets-v11')" type="button" class="btn btn-primary">Streets</button>
+                    <button onclick="switchLayer('satellite-v9')" type="button" class="btn btn-primary">satellite</button>
+                    <script>function reloadPage(){location.reload();}</script>
+                </div>
+                
+                <!-- <div class="dropend" style="margin-top: 0.2vw; margin-left: 2.5vw; margin-bottom: 0.2vw;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-cog"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <div id="menu" style="padding: 0.3vw; ">
+                    <input id="streets-v11" type="radio" name="rtoggle" value="streets"checked="checked" >
+                    <label for="streets-v11">streets</label>
+                    <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+                    <label for="dark-v10">dark</label>
+                    <input id="light-v10" type="radio" name="rtoggle" value="light">
+                    <label for="light-v10">light</label>
+                    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite">
+                    <label for="satellite-v9">satellite</label>
+                
+                    </div>
+                    </ul>
+                  </div> -->
+
+                <script>
+
+                </script>
 
             </div>
         </div>
@@ -109,8 +139,8 @@
                 <input id="searchreport" type="text" class="form-control" placeholder="Search case ID"
                     style="color: white; background-color: #343446; border-color: #FC76A1;" aria-label="Search case ID"
                     aria-describedby="button-addon2">
-                <button id="searchbutton" onclick="SearchReport()" class="btn btn-outline-secondary" type="button" id="button-addon2"
-                    style="border-color: #FC76A1;"><i class="fas fa-search"></i></button>
+                <button id="searchbutton" onclick="SearchReport()" class="btn btn-outline-secondary" type="button"
+                    id="button-addon2" style="border-color: #FC76A1;"><i class="fas fa-search"></i></button>
             </div>
 
             <div class="row" id="userreports">
@@ -248,8 +278,8 @@
                 color: white;
             }
 
-            #searchbutton:hover{
-                color:#FC76A1;
+            #searchbutton:hover {
+                color: #FC76A1;
             }
 
             .marker {
@@ -298,13 +328,13 @@
             mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/dark-v10',
+                style: 'mapbox://styles/mapbox/streets-v11',
                 center: [9.0820, 8.6753],
                 zoom: 6.5
             });
 
-
-            map.on('load', function () {
+            function switchLayer(layer) {
+                // map.on('load', function () {
                 map.loadImage("https://i.imgur.com/AMhXOvd.png", function (error, image) { //this is where we load the image file 
                     if (error) throw error;
                     map.addImage("custom-marker", image); //this is where we name the image file we are loading 
@@ -323,25 +353,34 @@
                     })
                 })
 
-            })
 
-            map.on('click', function (e) {
-                var features = map.queryRenderedFeatures(e.point, {
-                    layers: ['markers'] // replace this with the name of the layer
+
+                // })
+
+                map.on('click', function (e) {
+                    var features = map.queryRenderedFeatures(e.point, {
+                        layers: ['markers'] // replace this with the name of the layer
+                    });
+
+                    if (!features.length) {
+                        return;
+                    }
+
+                    var feature = features[0];
+
+                    var popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>ID: ' + feature.properties.id + '</h6><h6>State code: ' + feature.properties.state_code + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+                        .setLngLat(feature.geometry.coordinates)
+                        .addTo(map);
                 });
 
-                if (!features.length) {
-                    return;
-                }
 
-                var feature = features[0];
 
-                var popup = new mapboxgl.Popup({ offset: [0, -15] })
-                    .setLngLat(feature.geometry.coordinates)
-                    .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>ID: ' + feature.properties.id + '</h6><h6>State code: ' + feature.properties.state_code + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
-                    .setLngLat(feature.geometry.coordinates)
-                    .addTo(map);
-            });
+                // var layerId = layer.target.id;
+                    map.setStyle('mapbox://styles/mapbox/' + layer);
+
+            }
 
         </script>
 
