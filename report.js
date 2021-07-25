@@ -52,3 +52,10 @@ function reply_click(clicked_id) {
 
 
 
+function SearchReport(){
+    var searchreport = document.getElementById("searchreport").value;
+    location.hash = searchreport;
+    setTimeout(function () {
+        location.hash = null;
+    }, 3000);
+}
