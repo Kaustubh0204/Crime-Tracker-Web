@@ -26,6 +26,7 @@ var october = 0;
 var november = 0;
 var december = 0;
 
+
 db.collection("report").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 
@@ -112,8 +113,9 @@ db.collection("report").get().then((querySnapshot) => {
 
 
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myChart1 = new Chart(ctx, {
+
         type: 'pie',
         data: {
             labels: ['Vandalism', 'Theft', 'Terrorism', 'Murder', 'Narcotics', 'Domestic Abuse', 'Assault', 'Suicide', 'Corruption', 'Others'],
@@ -154,14 +156,206 @@ db.collection("report").get().then((querySnapshot) => {
                 }
             }
         }
+
+
     });
-
-
 
 
     var ctx = document.getElementById('myChart2').getContext('2d');
     var myChart2 = new Chart(ctx, {
+
+        type: 'bar',
+        data: {
+            labels: ['Vandalism', 'Theft', 'Terrorism', 'Murder', 'Narcotics', 'Domestic Abuse', 'Assault', 'Suicide', 'Corruption', 'Others'],
+            datasets: [{
+                label: 'Crime analysis for 2021',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 255, 255, 0.2)',
+                    'rgba(255, 0, 255, 0.2)',
+                    'rgba(128, 108, 80, 0.2)',
+                    'rgba(170, 170, 170, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(128, 108, 80, 1)',
+                    'rgba(170, 170, 170, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+
+
+    });
+
+    var ctx = document.getElementById('myChart3').getContext('2d');
+    var myChart3 = new Chart(ctx, {
+
+        type: 'line',
+        data: {
+            labels: ['Vandalism', 'Theft', 'Terrorism', 'Murder', 'Narcotics', 'Domestic Abuse', 'Assault', 'Suicide', 'Corruption', 'Others'],
+            datasets: [{
+                label: 'Crime analysis for 2021',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 255, 255, 0.2)',
+                    'rgba(255, 0, 255, 0.2)',
+                    'rgba(128, 108, 80, 0.2)',
+                    'rgba(170, 170, 170, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(128, 108, 80, 1)',
+                    'rgba(170, 170, 170, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+
+
+    });
+
+
+    var ctx = document.getElementById('myChart4').getContext('2d');
+    var myChart4 = new Chart(ctx, {
         type: 'pie',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Crime analysis for 2021',
+                data: data2,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 255, 255, 0.2)',
+                    'rgba(255, 0, 255, 0.2)',
+                    'rgba(128, 108, 80, 0.2)',
+                    'rgba(170, 170, 170, 0.2)',
+                    'rgba(220, 190, 255, 0.2)',
+                    'rgba(128, 128, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(128, 108, 80, 1)',
+                    'rgba(170, 170, 170, 1)',
+                    'rgba(220, 190, 255, 1)',
+                    'rgba(128, 128, 0, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var ctx = document.getElementById('myChart5').getContext('2d');
+    var myChart4 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Crime analysis for 2021',
+                data: data2,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 255, 255, 0.2)',
+                    'rgba(255, 0, 255, 0.2)',
+                    'rgba(128, 108, 80, 0.2)',
+                    'rgba(170, 170, 170, 0.2)',
+                    'rgba(220, 190, 255, 0.2)',
+                    'rgba(128, 128, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 255, 255, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(128, 108, 80, 1)',
+                    'rgba(170, 170, 170, 1)',
+                    'rgba(220, 190, 255, 1)',
+                    'rgba(128, 128, 0, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    var ctx = document.getElementById('myChart6').getContext('2d');
+    var myChart6 = new Chart(ctx, {
+        type: 'line',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
@@ -211,7 +405,66 @@ db.collection("report").get().then((querySnapshot) => {
 
 
 
+
 });
 
 
 
+var x = document.getElementById("myChart1");
+x.style.display = "block";
+var x = document.getElementById("myChart2");
+x.style.display = "none";
+var x = document.getElementById("myChart3");
+x.style.display = "none";
+var x = document.getElementById("myChart4");
+x.style.display = "block";
+var x = document.getElementById("myChart5");
+x.style.display = "none";
+var x = document.getElementById("myChart6");
+x.style.display = "none";
+
+
+function getpie() {
+    var x = document.getElementById("myChart1");
+    x.style.display = "block";
+    var x = document.getElementById("myChart2");
+    x.style.display = "none";
+    var x = document.getElementById("myChart3");
+    x.style.display = "none";
+    var x = document.getElementById("myChart4");
+    x.style.display = "block";
+    var x = document.getElementById("myChart5");
+    x.style.display = "none";
+    var x = document.getElementById("myChart6");
+    x.style.display = "none";
+}
+
+function getbar() {
+    var x = document.getElementById("myChart1");
+    x.style.display = "none";
+    var x = document.getElementById("myChart2");
+    x.style.display = "block";
+    var x = document.getElementById("myChart3");
+    x.style.display = "none";
+    var x = document.getElementById("myChart4");
+    x.style.display = "none";
+    var x = document.getElementById("myChart5");
+    x.style.display = "block";
+    var x = document.getElementById("myChart6");
+    x.style.display = "none";
+}
+
+function getline() {
+    var x = document.getElementById("myChart1");
+    x.style.display = "none";
+    var x = document.getElementById("myChart2");
+    x.style.display = "none";
+    var x = document.getElementById("myChart3");
+    x.style.display = "block";
+    var x = document.getElementById("myChart4");
+    x.style.display = "none";
+    var x = document.getElementById("myChart5");
+    x.style.display = "none";
+    var x = document.getElementById("myChart6");
+    x.style.display = "block";
+}
