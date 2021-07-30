@@ -104,6 +104,61 @@
         </div>
 
         <br>
+
+
+        <!--solved case modal-->
+        <div class="modal fade" id="solved-case-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
+                    <div class="modal-header"
+                        style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw;">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: white">Close case</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 style="color:#FC76A1">Enter report details</h5>
+                        <hr style="background-color: #FC76A1;">
+                        <textarea id="policeStatement" class="form-control" rows="10"
+                            style="color: white; background-color: #1D1D26; border-color: #FC76A1;"></textarea>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn hover-item" data-bs-dismiss="modal" data-bs-toggle="modal" 
+                            data-bs-target="#Security-password-modal"
+                            style="color: white; background-color: #FC76A1; border-radius: 1vw;">Delete report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Security password modal-->
+        <div class="modal fade" id="Security-password-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
+                    <div class="modal-header"
+                        style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw;">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: white">Close case</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 style="color:#FC76A1">Enter high security password</h5>
+                        <hr style="background-color: #FC76A1;">
+                        <input id="highsecuritypassword" class="form-control"  type="password"
+                            style="color: white; background-color: #1D1D26; border-color: #FC76A1;"></input>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn hover-item" 
+                            style="color: white; background-color: #FC76A1; border-radius: 1vw;">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
         <div class="row"
             style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 1vw; border-radius: 2vw;">
             <h5 style="color: white;">Recent Cases</h5>
@@ -112,7 +167,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        
+
                         <div class="row" style="margin-left: 200px; margin-right: 100px;">
                             <div class="col">
                                 <div class="card text-white bg-dark mb-3"
@@ -133,6 +188,11 @@
                                             <hr><i class="fas fa-info-circle" style="color: #FC76A1;"></i> Bunch of
                                             people wrecking a cycle store.
                                         </p>
+                                        <button class="btn hover-item" id="" data-bs-toggle="modal"
+                                            data-bs-target="#solved-case-modal"
+                                            style="float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;">Close
+                                            case</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -843,7 +903,7 @@
                 measurementId: "G-KW51ES0TGV"
             };
             firebase.initializeApp(config);
-        </script>   
+        </script>
         <script src="logout.js"></script>
 
 </body>

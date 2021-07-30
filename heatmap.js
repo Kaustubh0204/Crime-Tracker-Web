@@ -11,6 +11,7 @@ db.collection("report").get().then((querySnapshot) => {
 
     });
 
+    
     console.log(heatmarkers2);
 
 });
