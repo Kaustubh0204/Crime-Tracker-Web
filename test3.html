@@ -1,0 +1,83 @@
+<!-- Documentation: https://www.mapbox.com/mapbox-gl-js/style-spec/#sources-geojson -->
+<!-- Mapbox styles: https://github.com/mapbox/mapbox-gl-styles -->
+<!-- Earthquake data: https://earthquake.usgs.gov/ -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+    <title> Earthquake  </title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <div id="map"> </div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
+
+    var map = new mapboxgl.Map({
+        container: 'map', 
+        style: 'mapbox://styles/mapbox/dark-v10', 
+        center: [0,0], 
+        zoom: 4,
+        maxZoom: 20,
+        // pitch: 30,
+    });
+
+    map.on('load', function() {
+        map.loadImage("https://i.ibb.co/dLfKTpf/badge.png", function(error, image) { //this is where we load the image file 
+            if (error) throw error;
+            map.addImage("custom-marker", image); //this is where we name the image file we are loading 
+            map.addLayer({
+                'id': "markers", //this is the name of the layer, it is what we will reference below 
+                'type': "symbol",
+                'source': { //now we are adding the source to the layer more directly and cleanly 
+                    type: "geojson",
+                    data: 'test.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
+                },
+                'layout': {
+                    "icon-image": "custom-marker", // the name of image file we used above
+                    "icon-allow-overlap": false,
+                    "icon-size": 1 //this is a multiplier applied to the standard size. So if you want it half the size put ".5"
+                }
+            })
+        })
+
+    })
+
+    map.on('click', function(e) {
+        var features = map.queryRenderedFeatures(e.point, {
+            layers: ['markers'] // replace this with the name of the layer
+        });
+
+        if (!features.length) {
+            return;
+        }
+
+        var feature = features[0];
+
+        var popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML('<h3>' + feature.properties.mag + '</h3><p>' + feature.properties.place + '</p>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map);
+    });
+
+
+    </script>
+</body>
+
+</html>
