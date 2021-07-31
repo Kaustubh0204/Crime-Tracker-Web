@@ -162,3 +162,7 @@ function deleteReport2(delbuttonid2){
 function refreshpageafterdelete(){
     location.reload();
 }
+
+
+
+

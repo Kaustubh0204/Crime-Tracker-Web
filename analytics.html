@@ -25,7 +25,10 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <!--Chart JS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="analytics.js"></script> -->
+
+
+
+
 
 </head>
 
@@ -66,7 +69,8 @@
                         <tr class="fade-item">
                             <td class="fade-item" style="padding: 1vw; border-radius: 0.5vw; "><i
                                     style="background-color: #FC76A1; padding: 8px; font-size: 22px; border-radius: 1vw;"
-                                    class="fas fa-exclamation-circle"></i><span style="font-size: 15px; font-weight: 500;">
+                                    class="fas fa-exclamation-circle"></i><span
+                                    style="font-size: 15px; font-weight: 500;">
                                     &nbsp<a href="home.html"> Cases</a></span> </td>
                         </tr>
                         <tr style="height: 1vw;">
@@ -108,15 +112,15 @@
                 <table class="container" style="margin-top: 3vw; ">
                     <tbody style="color: white;">
                         <tr class="fade-item">
-                            <td class="fade-item" style="padding: 1vw; border-radius: 0.5vw; background-color: #272732;"><i
+                            <td class="fade-item"
+                                style="padding: 1vw; border-radius: 0.5vw; background-color: #272732;"><i
                                     style="background-color: #D25A61; padding: 8px; font-size: 20px; border-radius: 1vw;"
                                     class="fas fa-map-marked-alt"></i><span style="font-size: 15px; font-weight: 500;">
                                     &nbsp<a href="analytics.html"> Map</a></span> </td>
                         </tr>
                         <tr style="height: 1vw;">
                         <tr>
-                            <td class="fade-item"
-                                style="padding: 1vw; border-radius: 0.5vw;"><i
+                            <td class="fade-item" style="padding: 1vw; border-radius: 0.5vw;"><i
                                     style="background-color: #DBBE56; padding: 8px; font-size: 20px; border-radius: 1vw;"
                                     class="fas fa-chart-pie"></i><span style="font-size: 15px; font-weight: 500;">
                                     &nbsp<a href="charts.html"> Charts</a></span> </td>
@@ -128,7 +132,7 @@
                                     class="fas fa-table"></i><span style="font-size: 15px; font-weight: 500;">
                                     &nbsp<a href="#solved-cases"> Table</a></span> </td>
                         </tr>
-                       
+
                     </tbody>
                 </table>
             </div>
@@ -139,353 +143,375 @@
         <br>
 
         <div class="row" id="solved-cases"
-            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 1vw; border-radius: 2vw; overflow: visible;">
-            <h5 style="color: white;" class="mx-1 my-2">Under Development</h5>
-
-            <!-- <div class="container" style="height: 400px; width: 400px;">
-                <canvas id="myChart" width="400" height="400"></canvas>
-                
-
-            </div>
-
-            <div class="container" style="height: 400px; width: 400px;">
-                <canvas id="myChart2" width="400" height="400"></canvas>
-                
-
-            </div> -->
-
-
+            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 2vw; border-radius: 2vw; overflow: visible;">
+            <h5 style="color: white;" class="my-2 mx-2">Solved cases</h5>
             
+            <div class="input-group mb-4 my-3 mx-1" style="width: 300px; float: right;">
+                <input id="searchreport2" type="text" class="form-control" placeholder="Search case ID"
+                    style="color: white; background-color: #343446; border-color: #FC76A1; float: right;" aria-label="Search Case ID"
+                    aria-describedby="button-addon2">
+                <button id="searchbutton2" onclick="SearchReport2()" class="btn btn-outline-secondary" type="button"
+                    id="button-addon2" style="border-color: #FC76A1;"><i class="fas fa-search"></i></button>
+            </div>
+           
+            <table style="color: white; margin-top: 2vw; " id="AnalyticsTableContent">
+                
+                <tr style="padding: 1vw;">
+                    <th>Case ID</th>
+                    <th>Issue date and time</th>
+                    <th>Location</th>
+                    <th>Crime type</th>
+                    <th>Reporter's name</th>
+                    <th>Police assigned</th>
 
+                </tr>
+                <tr>
+                    <td colspan="6"><hr style="background-color: #FC76A1; height: 2px; opacity: 100%; border-radius: 1vw;"></td> 
+                </tr>
+               
+               
+            </table>
+           
         </div>
 
         <br>
-
     </div>
+   
 
+    <!-- Profile Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
+                <div class="modal-header"
+                    style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw; ">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">Your
+                        Profile
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #1D1D26; text-align: center; ">
 
-        <!-- Profile Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw;">
-                    <div class="modal-header"
-                        style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw; ">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">Your
-                            Profile
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="profilemodal">
+
                     </div>
-                    <div class="modal-body" style="background-color: #1D1D26; text-align: center; ">
 
-                        <div id="profilemodal">
-
-                        </div>
-
-                        <!-- <img id="img" src="assets/profilepic.png"
+                    <!-- <img id="img" src="assets/profilepic.png"
                             style="margin: 0.2vw; height: 200px; width: 200px; border-radius: 50%;"> -->
-                        <!-- <input type="file" class="btn btn-primary">hi</input> -->
-                        <label for="file" class="btn" style="position: absolute; top: 41%; right: 33%;"><img
-                                src="assets/uploadimage.png"></label>
-                        <input type="file" id="file" style="background-color: #FC76A1;" class="inputfile">
-                        <style>
-                            .inputfile {
-                                width: 0.1px;
-                                height: 0.1px;
-                                opacity: 0;
-                                overflow: hidden;
-                                position: absolute;
-                                z-index: -1;
-                            }
-                        </style>
+                    <!-- <input type="file" class="btn btn-primary">hi</input> -->
+                    <label for="file" class="btn" style="position: absolute; top: 41%; right: 33%;"><img
+                            src="assets/uploadimage.png"></label>
+                    <input type="file" id="file" style="background-color: #FC76A1;" class="inputfile">
+                    <style>
+                        .inputfile {
+                            width: 0.1px;
+                            height: 0.1px;
+                            opacity: 0;
+                            overflow: hidden;
+                            position: absolute;
+                            z-index: -1;
+                        }
+                    </style>
 
-                        <p id="pleasewait" style="color: #FC76A1; font-size: 12px;"></p>
+                    <p id="pleasewait" style="color: #FC76A1; font-size: 12px;"></p>
 
-                        <div style="height: 20px;"></div>
-                        <ul class="list-group list-group-flush">
-                            <li style="background-color: #1D1D26; color: #FC76A1; font-size: 20px; font-weight: 600;"
-                                class="list-group-item" id="profilename"></li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
-                                id="profilepost">
-                            </li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
-                                id="profileemail">
-                            </li>
-                            <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
-                                id="profilephoneno">
-                            </li>
-                        </ul>
+                    <div style="height: 20px;"></div>
+                    <ul class="list-group list-group-flush">
+                        <li style="background-color: #1D1D26; color: #FC76A1; font-size: 20px; font-weight: 600;"
+                            class="list-group-item" id="profilename"></li>
+                        <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item" id="profilepost">
+                        </li>
+                        <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
+                            id="profileemail">
+                        </li>
+                        <li style="background-color: #1D1D26; color: #FC76A1;" class="list-group-item"
+                            id="profilephoneno">
+                        </li>
+                    </ul>
 
-                    </div>
-                    <div
-                        style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
-                        <a onclick="logout()" type="button" class="btn-lg hover-item"
-                            style="background-color: #30303D; border-color: #fc76a1; font-weight: 500; color: white; border-radius: 1vw;"><i
-                                class="fas fa-sign-out-alt"></i> Log Out</a>
+                </div>
+                <div style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
+                    <a onclick="logout()" type="button" class="btn-lg hover-item"
+                        style="background-color: #30303D; border-color: #fc76a1; font-weight: 500; color: white; border-radius: 1vw;"><i
+                            class="fas fa-sign-out-alt"></i> Log Out</a>
 
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            const file = document.getElementById("file")
-            const img = document.getElementById("img")
-            const url = document.getElementById("url")
-            file.addEventListener("change", ev => {
+    <script>
+        const file = document.getElementById("file")
+        const img = document.getElementById("img")
+        const url = document.getElementById("url")
+        file.addEventListener("change", ev => {
 
-                const pleasewait = document.querySelector("#pleasewait")
-                pleasewait.innerHTML += '<br><br>Please wait for another 10 seconds<br>while we update your profile picture.'
+            const pleasewait = document.querySelector("#pleasewait")
+            pleasewait.innerHTML += '<br><br>Please wait for another 10 seconds<br>while we update your profile picture.'
 
-                const formdata = new FormData()
-                formdata.append("image", ev.target.files[0])
-                fetch("https://api.imgur.com/3/image/", {
-                    method: "post",
-                    headers: {
-                        Authorization: "Client-ID 580de07a0898c59"
-                    },
-                    body: formdata
-                }).then(data => data.json()).then(data => {
-                    // img.src = data.data.link
-                    console.log(data.data.link);
+            const formdata = new FormData()
+            formdata.append("image", ev.target.files[0])
+            fetch("https://api.imgur.com/3/image/", {
+                method: "post",
+                headers: {
+                    Authorization: "Client-ID 580de07a0898c59"
+                },
+                body: formdata
+            }).then(data => data.json()).then(data => {
+                // img.src = data.data.link
+                console.log(data.data.link);
 
-                    firebase.auth().onAuthStateChanged(function (user) {
+                firebase.auth().onAuthStateChanged(function (user) {
 
-                        db.collection("police").where("email", "==", user.email)
-                            .get()
-                            .then((querySnapshot) => {
-                                querySnapshot.forEach((doc) => {
+                    db.collection("police").where("email", "==", user.email)
+                        .get()
+                        .then((querySnapshot) => {
+                            querySnapshot.forEach((doc) => {
 
 
 
-                                    var currentdoc = doc.id;
-                                    db.collection('police').doc(currentdoc).update({
+                                var currentdoc = doc.id;
+                                db.collection('police').doc(currentdoc).update({
 
-                                        photo: data.data.link
-                                    });
-
+                                    photo: data.data.link
                                 });
-                            })
 
-                    });
+                            });
+                        })
 
-                    setTimeout(function () {
-                        window.location.reload(1);
-                    }, 5000);
-
-                })
-            })
-
-
-        </script>
-
-
-        <style>
-            .hover-item {
-                transition: 0.3s;
-            }
-
-            .hover-item:hover {
-                transform: translate(0, -5px);
-            }
-
-            .fade-item:hover {
-                background-color: #272732;
-            }
-
-            a {
-
-                text-decoration: none;
-                color: white;
-            }
-
-            #searchbutton:hover {
-                color: #FC76A1;
-            }
-        </style>
-
-        <script>
-            mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/dark-v10',
-                center: [73.0297, 19.0330],
-                zoom: 6
-            });
-            // var count = 1;
-            // var lon = 73.0175;
-            // var lat = 19.0171;
-
-
-            function heatmap() {
-                
-               
-                map.on('load', function () {
-                    // Add a geojson point source.
-                    // Heatmap layers also work with a vector tile source.
-                    map.addSource('earthquakes', {
-                        type: 'geojson',
-                        data: {
-                            "type": "FeatureCollection",
-                            "features": [
-                            { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 8.675000000000011, 9.082 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.01608779999998, 19.004766 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 8.675299999999993, 9.082 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9781, 19.2183 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 8.675000000000011, 9.082 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.0196, 19.0338 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.0699, 19.0473 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9597417, 19.15822 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9978, 19.0745 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.0966, 19.0166 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9283, 18.8772 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 8.675000000000011, 9.082 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 8.675299999999993, 9.082 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9526304, 19.1638586 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.0404, 19.0237 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 72.9597417, 19.15822 ] } },{ "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ 73.1114, 19.0094 ] } },
-                            ]
-                        }
-                    });
-
-                    map.addLayer(
-                        {
-                            'id': 'earthquakes-heat',
-                            'type': 'heatmap',
-                            'source': 'earthquakes',
-                            'maxzoom': 9,
-                            'paint': {
-                                // Increase the heatmap weight based on frequency and property magnitude
-                                'heatmap-weight': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['get', 'mag'],
-                                    0,
-                                    0,
-                                    6,
-                                    1
-                                ],
-                                // Increase the heatmap color weight weight by zoom level
-                                // heatmap-intensity is a multiplier on top of heatmap-weight
-                                'heatmap-intensity': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['zoom'],
-                                    0,
-                                    1,
-                                    9,
-                                    3
-                                ],
-                                // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-                                // Begin color ramp at 0-stop with a 0-transparancy color
-                                // to create a blur-like effect.
-                                'heatmap-color': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['heatmap-density'],
-                                    0,
-                                    'rgba(33,102,172,0)',
-                                    0.2,
-                                    'rgb(103,169,207)',
-                                    0.4,
-                                    'rgb(209,229,240)',
-                                    0.6,
-                                    'rgb(253,219,199)',
-                                    0.8,
-                                    'rgb(239,138,98)',
-                                    1,
-                                    'rgb(178,24,43)'
-                                ],
-                                // Adjust the heatmap radius by zoom level
-                                'heatmap-radius': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['zoom'],
-                                    0,
-                                    2,
-                                    9,
-                                    20
-                                ],
-                                // Transition from heatmap to circle layer by zoom level
-                                'heatmap-opacity': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['zoom'],
-                                    7,
-                                    1,
-                                    9,
-                                    0
-                                ]
-                            }
-                        },
-                        'waterway-label'
-                    );
-
-                    map.addLayer(
-                        {
-                            'id': 'earthquakes-point',
-                            'type': 'circle',
-                            'source': 'earthquakes',
-                            'minzoom': 7,
-                            'paint': {
-                                // Size circle radius by earthquake magnitude and zoom level
-                                'circle-radius': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['zoom'],
-                                    7,
-                                    ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4],
-                                    16,
-                                    ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]
-                                ],
-                                // Color circle by earthquake magnitude
-                                'circle-color': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['get', 'mag'],
-                                    1,
-                                    'rgba(33,102,172,0)',
-                                    2,
-                                    'rgb(103,169,207)',
-                                    3,
-                                    'rgb(209,229,240)',
-                                    4,
-                                    'rgb(253,219,199)',
-                                    5,
-                                    'rgb(239,138,98)',
-                                    6,
-                                    'rgb(178,24,43)'
-                                ],
-                                'circle-stroke-color': 'white',
-                                'circle-stroke-width': 1,
-                                // Transition from heatmap to circle layer by zoom level
-                                'circle-opacity': [
-                                    'interpolate',
-                                    ['linear'],
-                                    ['zoom'],
-                                    7,
-                                    0,
-                                    8,
-                                    1
-                                ]
-                            }
-                        },
-                        'waterway-label'
-                    );
                 });
 
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 5000);
+
+            })
+        })
 
 
+    </script>
+
+
+    <style>
+        .hover-item {
+            transition: 0.3s;
+        }
+
+        .hover-item:hover {
+            transform: translate(0, -5px);
+        }
+
+        .fade-item:hover {
+            background-color: #272732;
+        }
+
+        a {
+
+            text-decoration: none;
+            color: white;
+        }
+
+        #searchbutton:hover {
+            color: #FC76A1;
+        }
+
+        .colorchange:hover{
+            color: #FC76A1;
+            cursor: pointer;
+        }
+
+        #searchbutton2:hover {
+                color: #FC76A1;
             }
 
-        </script>
+    </style>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            center: [73.0297, 19.0330],
+            zoom: 6
+        });
+        // var count = 1;
+        // var lon = 73.0175;
+        // var lat = 19.0171;
+
+
+        function heatmap() {
+
+
+            map.on('load', function () {
+                // Add a geojson point source.
+                // Heatmap layers also work with a vector tile source.
+                map.addSource('earthquakes', {
+                    type: 'geojson',
+                    data: {
+                        "type": "FeatureCollection",
+                        "features": [
+                            { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [8.675000000000011, 9.082] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.01608779999998, 19.004766] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [8.675299999999993, 9.082] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9781, 19.2183] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [8.675000000000011, 9.082] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.0196, 19.0338] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.0699, 19.0473] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9597417, 19.15822] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9978, 19.0745] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.0966, 19.0166] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9283, 18.8772] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [8.675000000000011, 9.082] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [8.675299999999993, 9.082] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9526304, 19.1638586] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.0404, 19.0237] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [72.9597417, 19.15822] } }, { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [73.1114, 19.0094] } },
+                        ]
+                    }
+                });
+
+                map.addLayer(
+                    {
+                        'id': 'earthquakes-heat',
+                        'type': 'heatmap',
+                        'source': 'earthquakes',
+                        'maxzoom': 9,
+                        'paint': {
+                            // Increase the heatmap weight based on frequency and property magnitude
+                            'heatmap-weight': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'mag'],
+                                0,
+                                0,
+                                6,
+                                1
+                            ],
+                            // Increase the heatmap color weight weight by zoom level
+                            // heatmap-intensity is a multiplier on top of heatmap-weight
+                            'heatmap-intensity': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                0,
+                                1,
+                                9,
+                                3
+                            ],
+                            // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                            // Begin color ramp at 0-stop with a 0-transparancy color
+                            // to create a blur-like effect.
+                            'heatmap-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['heatmap-density'],
+                                0,
+                                'rgba(33,102,172,0)',
+                                0.2,
+                                'rgb(103,169,207)',
+                                0.4,
+                                'rgb(209,229,240)',
+                                0.6,
+                                'rgb(253,219,199)',
+                                0.8,
+                                'rgb(239,138,98)',
+                                1,
+                                'rgb(178,24,43)'
+                            ],
+                            // Adjust the heatmap radius by zoom level
+                            'heatmap-radius': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                0,
+                                2,
+                                9,
+                                20
+                            ],
+                            // Transition from heatmap to circle layer by zoom level
+                            'heatmap-opacity': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                7,
+                                1,
+                                9,
+                                0
+                            ]
+                        }
+                    },
+                    'waterway-label'
+                );
+
+                map.addLayer(
+                    {
+                        'id': 'earthquakes-point',
+                        'type': 'circle',
+                        'source': 'earthquakes',
+                        'minzoom': 7,
+                        'paint': {
+                            // Size circle radius by earthquake magnitude and zoom level
+                            'circle-radius': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                7,
+                                ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4],
+                                16,
+                                ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]
+                            ],
+                            // Color circle by earthquake magnitude
+                            'circle-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'mag'],
+                                1,
+                                'rgba(33,102,172,0)',
+                                2,
+                                'rgb(103,169,207)',
+                                3,
+                                'rgb(209,229,240)',
+                                4,
+                                'rgb(253,219,199)',
+                                5,
+                                'rgb(239,138,98)',
+                                6,
+                                'rgb(178,24,43)'
+                            ],
+                            'circle-stroke-color': 'white',
+                            'circle-stroke-width': 1,
+                            // Transition from heatmap to circle layer by zoom level
+                            'circle-opacity': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                7,
+                                0,
+                                8,
+                                1
+                            ]
+                        }
+                    },
+                    'waterway-label'
+                );
+            });
+
+        }
 
 
 
-        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
-                authDomain: "crime-mapping-7610d.firebaseapp.com",
-                projectId: "crime-mapping-7610d",
-                storageBucket: "crime-mapping-7610d.appspot.com",
-                messagingSenderId: "928787398601",
-                appId: "1:928787398601:web:56f96b0e2a1b41aee47218",
-                measurementId: "G-KW51ES0TGV"
-            };
-            firebase.initializeApp(config);
 
-        </script>
-        <script src="index.js"></script>
-        <script src="analytics.js"></script>
-        <script src="heatmap.js"></script>
-        <script src="logout.js"></script>
+    </script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAOghuR0V463DQDrclJBRqMNH7YDqavNmY",
+            authDomain: "crime-mapping-7610d.firebaseapp.com",
+            projectId: "crime-mapping-7610d",
+            storageBucket: "crime-mapping-7610d.appspot.com",
+            messagingSenderId: "928787398601",
+            appId: "1:928787398601:web:56f96b0e2a1b41aee47218",
+            measurementId: "G-KW51ES0TGV"
+        };
+        firebase.initializeApp(config);
+
+    </script>
+    <script src="index.js"></script>
+    <script src="analytics.js"></script>
+    <script src="solved-report.js"></script>
+    <script src="heatmap.js"></script>
+    <script src="logout.js"></script>
+
+
 
 </body>
 

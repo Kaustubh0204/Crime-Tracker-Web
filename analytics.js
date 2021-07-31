@@ -468,3 +468,6 @@ function getline() {
     var x = document.getElementById("myChart6");
     x.style.display = "block";
 }
+
+
+

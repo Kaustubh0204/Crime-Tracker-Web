@@ -178,14 +178,35 @@
         <br>
 
         <div class="row" id="solved-cases"
-            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 1vw; border-radius: 2vw; overflow: visible;">
-            <h5 style="color: white;" class="mx-1 my-2">Under Development</h5>
+            style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 2vw; border-radius: 2vw; overflow: visible;">
+            <h5 style="color: white;" class="my-2 mx-2">Solved cases</h5>
+            
+            <div class="input-group mb-4 my-3 mx-1" style="width: 300px; float: right;">
+                <input id="searchreport2" type="text" class="form-control" placeholder="Search case ID"
+                    style="color: white; background-color: #343446; border-color: #FC76A1; float: right;" aria-label="Search Case ID"
+                    aria-describedby="button-addon2">
+                <button id="searchbutton2" onclick="SearchReport2()" class="btn btn-outline-secondary" type="button"
+                    id="button-addon2" style="border-color: #FC76A1;"><i class="fas fa-search"></i></button>
+            </div>
+           
+            <table style="color: white; margin-top: 2vw; " id="AnalyticsTableContent">
+                
+                <tr style="padding: 1vw;">
+                    <th>Case ID</th>
+                    <th>Issue date and time</th>
+                    <th>Location</th>
+                    <th>Crime type</th>
+                    <th>Reporter's name</th>
+                    <th>Police assigned</th>
 
-
-
-
-
-
+                </tr>
+                <tr>
+                    <td colspan="6"><hr style="background-color: #FC76A1; height: 2px; opacity: 100%; border-radius: 1vw;"></td> 
+                </tr>
+               
+               
+            </table>
+           
         </div>
 
         <br>
@@ -328,6 +349,15 @@
         #searchbutton:hover {
             color: #FC76A1;
         }
+
+        .colorchange:hover{
+            color: #FC76A1;
+            cursor: pointer;
+        }
+
+        #searchbutton2:hover {
+                color: #FC76A1;
+            }
     </style>
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
@@ -348,6 +378,7 @@
     </script>
     <script src="index.js"></script>
     <script src="analytics.js"></script>
+    <script src="solved-report.js"></script>
     <script src="heatmap.js"></script>
     <script src="logout.js"></script>
 
