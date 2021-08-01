@@ -25,7 +25,9 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <!--Chart JS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="analytics.js"></script> -->
+    <!--Javascript (Modal Trigger)  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -213,6 +215,87 @@
 
     </div>
 
+
+    <!-- Solved cases details modal -->
+    <div class="modal fade" id="SolvedCasesDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="background-color: #1D1D26; border-radius: 2vw; ">
+                <div class="modal-header" style="background-color: #1D1D26; border-color: #1D1D26; border-radius: 2vw;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: white; font-weight: 700;">Case details
+                    </h5>
+                    <button type="button" class="btn-close" onclick="DestroyReportDetails()"></button>
+                </div>
+                <div class="modal-body" style="background-color: #1D1D26; border-radius: 2vw;">
+
+                    <div class="row" style="background-color: #1D1D26; padding: 0.5vw;">
+                        <div class="col" style="background-color: #1D1D26;">
+                            <h4 style="color: #FC76A1;">Victim details</h4>
+                            <ul class="list-group">
+                                <li id="solvedreportuserimage" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"> <img
+                                        src="https://imgur.com/oO6KOxx.png"
+                                        style="height: 100px; width: 100px; border-style: solid; border-color: #FC76A1; border-radius: 50%;">
+                                </li>
+                                <li id="solvedreportusername" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportgender" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportphone" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;">
+                                <li id="solvedreportemerphone" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportuseremail" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportuseraddress" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                            </ul>
+
+                        </div>
+                        <div class="col" style="background-color: #1D1D26; text-align: center;">
+                            <h4 style="color: #FC76A1; text-align: center;">Report details</h4>
+                            <ul class="list-group">
+                                <li id="solvedreportreportimage" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"> <img src="assets/report.png"
+                                        style="height: 100px; width: 100px; border-style: solid; border-color: #FC76A1; border-radius: 50%;">
+                                </li>
+                                <li id="solvedreportreportcaseid" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportdate" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreporttime" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportlocation" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportcrimetype" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportdescription" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportpoliceverdict" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                            </ul>
+
+                        </div>
+                        <div class="col" style="background-color: #1D1D26; text-align: right;">
+                            <h4 style="color: #FC76A1; text-align: right;">Police details</h4>
+                            <ul class="list-group">
+                                <li id="solvedreportreportpolicephoto" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"> </li>
+                                <li id="solvedreportreportpolicename" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportpolicephone" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportpoliceemail" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                                <li id="solvedreportreportpolicepost" class="list-group-item"
+                                    style="background-color: #1D1D26; color: #FC76A1;"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Profile Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
