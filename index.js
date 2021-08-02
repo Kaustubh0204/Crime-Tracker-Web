@@ -1,3 +1,19 @@
+function prelogin(){
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+
+      window.location = "home.html";
+      var user = firebase.auth().currentUser;
+
+    } else {
+      $('#offcanvasBottom2').offcanvas('show');
+    }
+  });
+
+}
+
+
 function login() {
 
   firebase.auth().onAuthStateChanged(function (user) {
@@ -176,6 +192,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 
+// firebase.auth().signOut().then(() => {
+//   window.location.href = "index.html";
+// }).catch((error) => {
+//   // An error happened.
+// });
 
 
 
