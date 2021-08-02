@@ -115,6 +115,7 @@ function deleteReport2(delbuttonid2){
                     incidentLocation: doc.data().location,
                     reportersName: doc.data().name,
                     reportersPhoneNo: doc.data().phoneNo,
+                    reportersPhoto: doc.data().photoUrl,
                     policeAssignedEmail: user.email,
                     policeAssignedName: user.displayName,
                     policeAssignedVerdict: policeStatement

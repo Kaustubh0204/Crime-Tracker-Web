@@ -65,6 +65,7 @@ function GetReportDetails(solvedReportId) {
 
 
     // user
+    const solvedreportuserimage = document.querySelector("#solvedreportuserimage");
     const solvedreportusername = document.querySelector("#solvedreportusername");
     const solvedreportgender = document.querySelector("#solvedreportgender");
     const solvedreportphone = document.querySelector("#solvedreportphone");
@@ -93,6 +94,7 @@ function GetReportDetails(solvedReportId) {
                 // console.log(doc.id, " => ", doc.data());
 
                 //user
+                solvedreportuserimage.innerHTML += '<span id="solvedreportuserimage2"><img src="' + doc.data().reportersPhoto + '" style="height: 100px; width: 100px; border-style: solid; border-color: #FC76A1; border-radius: 50%;"></span>'
                 solvedreportusername.innerHTML += '<span id="solvedreportusername2"><i class="fas fa-user"></i> &nbsp<span style="font-weight: 700;">Name:</span> ' + doc.data().reportersName + '</span>';
                 if (doc.data().reportersGender == 'Male') {
                     solvedreportgender.innerHTML += '<span id="solvedreportgender2"><i class="fas fa-mars"></i> &nbsp<span style="font-weight: 700;">Gender:</span> ' + doc.data().reportersGender + '<span>';
@@ -130,6 +132,8 @@ function GetReportDetails(solvedReportId) {
 function DestroyReportDetails() {
 
     //user
+    const solvedreportuserimage2 = document.querySelector("#solvedreportuserimage2");
+    solvedreportuserimage2.remove();
     const solvedreportusername2 = document.querySelector("#solvedreportusername2");
     solvedreportusername2.remove();
     const solvedreportgender2 = document.querySelector("#solvedreportgender2");
