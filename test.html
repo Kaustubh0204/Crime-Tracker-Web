@@ -77,7 +77,7 @@
         mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/navigation-night-v1',
+            style: 'mapbox://styles/kaustubh0204/ckrxqgtpy9z4417p4kpg0cxbp',
             center: [73.0297, 19.0330],
             zoom: 12
         });
@@ -93,7 +93,7 @@
                     'type': "symbol",
                     'source': { //now we are adding the source to the layer more directly and cleanly 
                         type: "geojson",
-                        data: 'test.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
+                        data: 'test.GeoJSON' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
                         // 'https://energydata.info/dataset/e6c15a08-fd67-4a53-b03f-6b071557fbf4/resource/1f4d18e7-9747-4a9c-be70-7f4855ba62d4/download/hydro-power-projects.geojson'
                         // 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
                     },
