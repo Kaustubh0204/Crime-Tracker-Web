@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Create a heatmap layer</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            center: [-120, 50],
+            zoom: 2
+        });
+
+
+
+        map.on('load', function () {
+            map.loadImage("https://i.imgur.com/AMhXOvd.png", function (error, image) { //this is where we load the image file 
+                if (error) throw error;
+                map.addImage("custom-marker", image); //this is where we name the image file we are loading 
+                map.addLayer({
+                    'id': "markers", //this is the name of the layer, it is what we will reference below 
+                    'type': "symbol",
+                    'source': { //now we are adding the source to the layer more directly and cleanly 
+                        type: "geojson",
+                        data: 'test2.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
+                        // 'https://energydata.info/dataset/e6c15a08-fd67-4a53-b03f-6b071557fbf4/resource/1f4d18e7-9747-4a9c-be70-7f4855ba62d4/download/hydro-power-projects.geojson'
+                        // 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
+                    },
+                    'layout': {
+                        "icon-image": "custom-marker", // the name of image file we used above
+                        "icon-allow-overlap": false,
+                        "icon-size": 1 //this is a multiplier applied to the standard size. So if you want it half the size put ".5"
+                    }
+                })
+            })
+
+
+
+        })
+
+        map.on('click', function (e) {
+            var features = map.queryRenderedFeatures(e.point, {
+                layers: ['markers'] // replace this with the name of the layer
+            });
+
+            if (!features.length) {
+                return;
+            }
+
+            var feature = features[0];
+
+            var popup = new mapboxgl.Popup({ offset: [0, -15] })
+                .setLngLat(feature.geometry.coordinates)
+                .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>Zone: ' + feature.properties.zone + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+                .setLngLat(feature.geometry.coordinates)
+                .addTo(map);
+        });
+
+    </script>
+
+</body>
+
+</html>

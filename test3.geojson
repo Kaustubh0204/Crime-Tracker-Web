@@ -1,0 +1,160 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rabale Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00193858186452, 19.13595335109929
+        ]
+      }
+    },
+    {   
+      "type": "Feature",
+      "properties": {
+        "name": "Turbhe Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02025300006419, 19.064612935628016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vashi Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.99485517210671, 19.072504413218798
+        ]
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "A.P.M.C Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.72166870023779, 16.835776790766666
+        ]
+      }
+    }, 
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Nerul Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.01895951635674, 19.028596231977357
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "C.B.D Belapur Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0413954997903, 19.025250159700246
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "N.R.I Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02863565687309, 19.008179288558217
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Kopar Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00109657730721, 19.146269034230812
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Turbhe MIDC Police Station",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02022081361521, 19.06463321678386 
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Rabale Police Station (MIDC)",
+        "phone": "+91 9999999999",
+        "zone": "1",
+        "city": "Navi Mumbai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00112672858444, 19.14
+        ]
+      }
+    }
+
+    
+	 
+	
+
+  ]
+}

@@ -102,7 +102,7 @@
             <div class="col-8" style="background-color: #181820; text-align: left; margin-top: 1vw;">
 
                 <div class="row">
-                    <div class="col-6 container" style="width: 50%; height: 620px;">
+                    <div class="col-6" style="width: 50%; height: 620px;">
                         <h4 style="color: #FC76A1; text-align: center; background-color: #1D1D26;  
                         border-style: solid; border-color: #FC76A1; padding: 0.5vw; border-radius: 1vw;">Category wise
                         </h4>
@@ -120,27 +120,36 @@
                         <canvas id="myChart5" width="400" height="400"></canvas>
                         <canvas id="myChart6" width="400" height="400"></canvas>
                     </div>
+                    <br>
+                    <!-- <div class="col-4" style="width: 33%; height: 620px;">
+                        <h4 style="color: #FC76A1; text-align: center; background-color: #1D1D26; 
+                        border-style: solid; border-color: #FC76A1; padding: 0.5vw; border-radius: 1vw;">Pending cases
+                        </h4>
+                        <hr>
+                        <canvas id="myChart7" width="400" height="400"></canvas>
+                    
+                    </div> -->
                     <div style="height: 3.6437vw;"></div>
                     <div class="row" style="text-align: center;">
 
 
                         <div class="btn-group" role="group" aria-label="Basic example">
-                           
+
                             <button onclick="getpie()" type="button" class="btn btn-dark"><i class="fas fa-chart-pie"
                                     style="color: #FAB91D; font-size: 24px;"></i></button>
-                            <button onclick="getbar()"  type="button" class="btn btn-dark"><i class="fas fa-chart-bar"
+                            <button onclick="getbar()" type="button" class="btn btn-dark"><i class="fas fa-chart-bar"
                                     style="color: #FAB91D; font-size: 24px;"></i></button>
-                            <button onclick="getline()"  type="button" class="btn btn-dark"><i class="fas fa-chart-area"
+                            <button onclick="getline()" type="button" class="btn btn-dark"><i class="fas fa-chart-area"
                                     style="color: #FAB91D; font-size: 24px;"></i></button>
-                        </div>    
-            
+                        </div>
+
                     </div>
                 </div>
-                
+
 
             </div>
 
-           
+
 
 
             <div class="col-2" style=" background-color: #1D1D27; text-align: left; border-bottom-left-radius: 1vw;">
@@ -175,24 +184,24 @@
 
         </div>
 
- 
+
 
         <br>
 
         <div class="row" id="solved-cases"
             style="width: 100%; background-color: #1D1D27; margin-left: 0.07%; padding: 2vw; border-radius: 2vw; overflow: visible;">
             <h5 style="color: white;" class="my-2 mx-2">Solved cases</h5>
-            
+
             <div class="input-group mb-4 my-3 mx-1" style="width: 300px; float: right;">
                 <input id="searchreport2" type="text" class="form-control" placeholder="Search case ID"
-                    style="color: white; background-color: #343446; border-color: #FC76A1; float: right;" aria-label="Search Case ID"
-                    aria-describedby="button-addon2">
+                    style="color: white; background-color: #343446; border-color: #FC76A1; float: right;"
+                    aria-label="Search Case ID" aria-describedby="button-addon2">
                 <button id="searchbutton2" onclick="SearchReport2()" class="btn btn-outline-secondary" type="button"
                     id="button-addon2" style="border-color: #FC76A1;"><i class="fas fa-search"></i></button>
             </div>
-           
+
             <table style="color: white; margin-top: 2vw; " id="AnalyticsTableContent">
-                
+
                 <tr style="padding: 1vw;">
                     <th>Case ID</th>
                     <th>Issue date and time</th>
@@ -203,12 +212,14 @@
 
                 </tr>
                 <tr>
-                    <td colspan="6"><hr style="background-color: #FC76A1; height: 2px; opacity: 100%; border-radius: 1vw;"></td> 
+                    <td colspan="6">
+                        <hr style="background-color: #FC76A1; height: 2px; opacity: 100%; border-radius: 1vw;">
+                    </td>
                 </tr>
-               
-               
+
+
             </table>
-           
+
         </div>
 
         <br>
@@ -425,22 +436,22 @@
             color: white;
         }
 
-        a:hover{
-            color:#FC76A1;
+        a:hover {
+            color: #FB4B83;
         }
 
         #searchbutton:hover {
             color: #FC76A1;
         }
 
-        .colorchange:hover{
+        .colorchange:hover {
             color: #FC76A1;
             cursor: pointer;
         }
 
         #searchbutton2:hover {
-                color: #FC76A1;
-            }
+            color: #FC76A1;
+        }
     </style>
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>

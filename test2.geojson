@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rabale Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00191712698344, 19.135740482791785 
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Turbhe Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02025300006419, 19.064612935628016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vashi Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.99485517210671, 19.072504413218798
+        ]
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "A.P.M.C Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.72166870023779, 16.835776790766666
+        ]
+      }
+    }, 
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Nerul Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.01895951635674, 19.028596231977357
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "C.B.D Belapur Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0413954997903, 19.025250159700246
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "N.R.I Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02863565687309, 19.008179288558217
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Kopar Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00109657730721, 19.146269034230812
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Turbhe MIDC Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02022081361521, 19.06463321678386 
+        ]
+      }
+    } ,
+	{
+      "type": "Feature",
+      "properties": {
+        "name": "Rabale Police Station",
+        "zone": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.00114966292347, 19.146408324208373
+        ]
+      }
+    } ,
+
+    
+	 
+	
+
+  ]
+}

@@ -27,6 +27,8 @@ var november = 0;
 var december = 0;
 
 
+
+
 db.collection("report").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 
@@ -101,6 +103,7 @@ db.collection("report").get().then((querySnapshot) => {
         if (doc.data().caseid.charAt(2) + doc.data().caseid.charAt(3) == "12") {
             december++;
         }
+
 
 
     });
@@ -470,4 +473,65 @@ function getline() {
 }
 
 
+//solved-unsolved chart
+
+var solvedCases = 0;
+var unsolvedCases = 0;
+
+db.collection("report").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+
+        unsolvedCases++;
+
+
+    });
+
+
+    db.collection("solved-report").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+
+            solvedCases++;
+
+        });
+
+
+        const data3 = [solvedCases, unsolvedCases];
+
+
+
+        var ctx = document.getElementById('myChart7').getContext('2d');
+        var myChart7 = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Solved Cases', 'Unsolved Cases'],
+                datasets: [{
+                    label: 'Crime analysis for 2021',
+                    data: data3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+
+
+    });
+
+
+});
 
