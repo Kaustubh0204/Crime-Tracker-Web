@@ -7,6 +7,11 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -22,16 +27,59 @@
     </style>
 </head>
 
-<body>
+<body style="font-family: 'Work Sans', sans-serif;">
     <div id="map"></div>
+
+    <style>
+        .marker {
+            background-image: url('assets/danger.svg');
+            border-style: solid;
+            border-color: #FC76A1;
+            background-color: #FC76A1;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup-content {
+            font-family: 'Work Sans', sans-serif;
+            border-style: solid;
+            border-radius: 1vw;
+            border-color: #FC76A1;
+            color: #FC76A1;
+            background-color: #1D1D26;
+        }
+
+        .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+        .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+        .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+            border-bottom-color: #FC76A1;
+        }
+
+        .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+        .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+        .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+            border-top-color: #FC76A1
+        }
+
+        .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+            border-right-color: #FC76A1
+        }
+
+        .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+            border-left-color: #FC76A1
+        }
+    </style>
 
     <script>
         mapboxgl.accessToken = 'pk.eyJ1Ijoia2F1c3R1YmgwMjA0IiwiYSI6ImNrcjR5c20xMDA1ZDEyd215NGRrcDQxcWwifQ.omZ2nYvuSAL1IHqjrt3eHQ';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/dark-v10',
-            center: [-120, 50],
-            zoom: 2
+            style: 'mapbox://styles/mapbox/navigation-night-v1',
+            center: [73.0297, 19.0330],
+            zoom: 12
         });
 
 
@@ -45,7 +93,7 @@
                     'type': "symbol",
                     'source': { //now we are adding the source to the layer more directly and cleanly 
                         type: "geojson",
-                        data: 'test2.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
+                        data: 'test.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
                         // 'https://energydata.info/dataset/e6c15a08-fd67-4a53-b03f-6b071557fbf4/resource/1f4d18e7-9747-4a9c-be70-7f4855ba62d4/download/hydro-power-projects.geojson'
                         // 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
                     },
@@ -74,7 +122,7 @@
 
             var popup = new mapboxgl.Popup({ offset: [0, -15] })
                 .setLngLat(feature.geometry.coordinates)
-                .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>Zone: ' + feature.properties.zone + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+                .setHTML('<h2>' + feature.properties.name + '</h2><hr style="background-color: #FC76A1; border: none; height: 1px;"><h3>Zone: ' + feature.properties.zone + '<br>' + 'Phone: ' + feature.properties.phone + '<br> City: ' + feature.properties.city + '</h3>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
                 .setLngLat(feature.geometry.coordinates)
                 .addTo(map);
         });
