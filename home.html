@@ -102,7 +102,7 @@
 
 
                 <div class="btn-group" role="group" aria-label="Basic example"
-                    style="position: relative; z-index: 1; top: 11%; left: 35%;">
+                    style="position: relative; z-index: 1; top: 11%; left: 34%;">
                     <button onclick="GetPoliceStations()" type="button" class="btn"
                         style="background-color: #FC76A1;"><img src="assets/badge.png"></button>
                     <button onclick="switchLayer('dark-v10')" type="button" class="btn btn-dark"><i class="fas fa-moon"
@@ -113,6 +113,9 @@
                     <button onclick="switchLayer('satellite-v9')" type="button" class="btn"
                         style="background-color: #8ABAAE;"><i class="fas fa-globe-americas"
                             style="color: #0D6EFD; font-size: 24px;"></i></button>
+                    <button onclick="switchLayer2()" type="button" class="btn" style="background-color: #348361;"><img
+                            src="assets/radioactivity.png" style="height: 28px; width: 28px;"></button>
+
                 </div>
 
                 <div id="map" class="container" style="margin-top: 0px; width: 95%; height: 620px; border-radius: 2vw;">
@@ -223,7 +226,7 @@
                     <div
                         style="background-color: #1D1D26; text-align: center; border-radius: 2vw; margin-bottom: 1.5vw;">
                         <br>
-                        <button  class="btn-lg hover-item"  data-bs-dismiss="modal"
+                        <button class="btn-lg hover-item" data-bs-dismiss="modal"
                             style="background-color: #30303D;  font-weight: 500; color: white; border-radius: 1vw;">
                             OK</button>
                     </div>
@@ -435,7 +438,7 @@
                         'type': "symbol",
                         'source': { //now we are adding the source to the layer more directly and cleanly 
                             type: "geojson",
-                            data: 'police-station.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
+                            data: 'police-station2.geojson' // CHANGE THIS TO REFLECT WHERE YOUR DATA IS COMING FROM
                             // 'https://energydata.info/dataset/e6c15a08-fd67-4a53-b03f-6b071557fbf4/resource/1f4d18e7-9747-4a9c-be70-7f4855ba62d4/download/hydro-power-projects.geojson'
                             // 'https://gis-geoserver.ehealthafrica.org/geoserver/eHA_db/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=eHA_db:sv_police_stations&outputFormat=application%2Fjson&authkey=fdfe9a37-d2d0-4210-9a15-25dab5d907fa'
                         },
@@ -462,11 +465,25 @@
 
                     var feature = features[0];
 
-                    var popup = new mapboxgl.Popup({ offset: [0, -15] })
-                        .setLngLat(feature.geometry.coordinates)
-                        .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>ID: ' + feature.properties.id + '</h6><h6>State code: ' + feature.properties.state_code + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
-                        .setLngLat(feature.geometry.coordinates)
-                        .addTo(map);
+
+
+                    if (feature.geometry.coordinates[0] < 50) {
+
+                        var popup = new mapboxgl.Popup({ offset: [0, -15] })
+                            .setLngLat(feature.geometry.coordinates)
+                            .setHTML('<h5>' + feature.properties.name + '</h5><hr><h6>ID: ' + feature.properties.id + '</h6><h6>State code: ' + feature.properties.state_code + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+                            .setLngLat(feature.geometry.coordinates)
+                            .addTo(map);
+
+                    } else {
+                        var popup = new mapboxgl.Popup({ offset: [0, -15] })
+                            .setLngLat(feature.geometry.coordinates)
+                            .setHTML('<h5>' + feature.properties.name + '</h5><hr style="background-color: #FC76A1; border: none; height: 1px;"><h6>Zone: ' + feature.properties.zone + '<br>' + 'Phone: ' + feature.properties.phone + '<br> City: ' + feature.properties.city + '</h6>') // CHANGE THIS TO REFLECT THE PROPERTIES YOU WANT TO SHOW
+                            .setLngLat(feature.geometry.coordinates)
+                            .addTo(map);
+                    }
+
+
                 });
 
 
@@ -479,6 +496,11 @@
             function switchLayer(layer) {
                 map.setStyle('mapbox://styles/mapbox/' + layer);
             }
+
+            function switchLayer2() {
+                map.setStyle('mapbox://styles/kaustubh0204/ckrxqgtpy9z4417p4kpg0cxbp');
+            }
+
 
         </script>
 
