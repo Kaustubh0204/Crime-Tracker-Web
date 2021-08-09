@@ -413,6 +413,9 @@ db.collection("report").get().then((querySnapshot) => {
 
 
 
+
+
+
 var x = document.getElementById("myChart1");
 x.style.display = "block";
 var x = document.getElementById("myChart2");

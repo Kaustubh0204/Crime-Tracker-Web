@@ -3,7 +3,7 @@ var db = firebase.firestore();
 const AnalyticsTableContent = document.querySelector("#AnalyticsTableContent");
 
 
-db.collection("solved-report").get().then((querySnapshot) => {
+db.collection("solved-report").orderBy("caseid", "desc").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 
        
@@ -52,7 +52,7 @@ function GetReportDetails(solvedReportId) {
 
                     //police
                     solvedreportreportpolicephoto.innerHTML += '<span id="solvedreportreportpolicephoto2"><img src="' + doc.data().photo + '" style="height: 100px; width: 100px; border-style: solid; border-color: #FC76A1; border-radius: 50%;"> </span>';
-                    solvedreportreportpolicephone.innerHTML += '<span id="solvedreportreportpolicephone2"><i class="fas fa-phone"></i> &nbsp<span style="font-weight: 700;">Contact:</span> +234 ' + doc.data().phoneNo + '</span>';
+                    solvedreportreportpolicephone.innerHTML += '<span id="solvedreportreportpolicephone2"><i class="fas fa-phone"></i> &nbsp<span style="font-weight: 700;">Contact:</span> +91 ' + doc.data().phoneNo + '</span>';
                     solvedreportreportpolicepost.innerHTML +=  '<span id="solvedreportreportpolicepost2"><i class="fas fa-star"></i> &nbsp<span style="font-weight: 700;">Post:</span> ' + doc.data().post + '</span>';
         
                 });
@@ -106,8 +106,8 @@ function GetReportDetails(solvedReportId) {
                 } else {
                     solvedreportgender.innerHTML += '<span id="solvedreportgender2"><i class="fas fa-venus"></i> &nbsp<span style="font-weight: 700;">Gender:</span> ' + doc.data().reportersGender + '<span>';
                 }
-                solvedreportphone.innerHTML += '<span id="solvedreportphone2"><i class="fas fa-phone"></i> &nbsp<span style="font-weight: 700;">Contact:</span> +234 ' + doc.data().reportersPhoneNo + '</span>';
-                solvedreportemerphone.innerHTML += '<span id="solvedreportemerphone2"><i class="fas fa-phone-alt"></i> &nbsp<span style="font-weight: 700;">Alt contact:</span> +234 ' + doc.data().reportersEmerphoneNo + '</span>';
+                solvedreportphone.innerHTML += '<span id="solvedreportphone2"><i class="fas fa-phone"></i> &nbsp<span style="font-weight: 700;">Contact:</span> +91 ' + doc.data().reportersPhoneNo + '</span>';
+                solvedreportemerphone.innerHTML += '<span id="solvedreportemerphone2"><i class="fas fa-phone-alt"></i> &nbsp<span style="font-weight: 700;">Alt contact:</span> +91 ' + doc.data().reportersEmerphoneNo + '</span>';
                 solvedreportuseremail.innerHTML += '<span id="solvedreportuseremail2"><i class="fas fa-envelope"></i> &nbsp<span style="font-weight: 700;">Email:</span> ' + doc.data().reportersEmail + '</span>';
                 solvedreportuseraddress.innerHTML += '<span id="solvedreportuseraddress2"><i class="fas fa-home"></i> &nbsp<span style="font-weight: 700;">Address:</span> ' + doc.data().reportersHomeAddress + '</span>';
 

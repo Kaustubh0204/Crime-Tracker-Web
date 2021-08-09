@@ -1,5 +1,4 @@
 function prelogin(){
-
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
 
@@ -126,6 +125,14 @@ function signup() {
       $('#offcanvasBottom').offcanvas('hide');
   }
 
+
+  // firebase.auth().signOut().then(() => {
+  //   // window.location.href = "index.html";
+  // }).catch((error) => {
+  //   // An error happened.
+  // });
+  
+
 }
 
 
@@ -155,7 +162,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           profilepost.innerHTML += doc.data().post;
 
           const profilephoneno = document.querySelector("#profilephoneno");
-          profilephoneno.innerHTML += "+234 " + doc.data().phoneNo;
+          profilephoneno.innerHTML += "+91 " + doc.data().phoneNo;
 
 
         });
@@ -192,12 +199,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 
-// firebase.auth().signOut().then(() => {
-//   window.location.href = "index.html";
-// }).catch((error) => {
-//   // An error happened.
-// });
 
+  // firebase.auth().signOut().then(() => {
+  //   window.location.href = "index.html";
+  // }).catch((error) => {
+  //   // An error happened.
+  // });
 
 
 
