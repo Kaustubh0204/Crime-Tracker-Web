@@ -24,20 +24,20 @@ db.collection("report").orderBy("caseid", "asc")
     .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
-                
+
                 // if(change.doc.data().locDesc)
 
-                if(change.doc.data().gender == 'Male'){
-                userreports.innerHTML =  "<div class='col' id='card"+ change.doc.data().caseid +"'> <div class='card text-white bg-dark mb-3' style='min-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;'> <div class='card-header'><i class='fas fa-exclamation-triangle' style='color: #FC76A1;'></i> Case ID #" + change.doc.data().caseid + " <a href='#map' onClick='reply_click(this.id)' id='" + change.doc.data().caseid + "' style='background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;'><i class='fas fa-crosshairs'></i></a></div> <div class='card-body'> <h5 class='card-title'><i class='fas fa-skull' style='color: #FC76A1;'></i> " + change.doc.data().crimeType + "</h5><hr> <p class='card-text'><i class='fas fa-calendar-alt' style='color: #FC76A1;'></i> " + String(change.doc.data().datetime.toDate()).substring(0, 24) + "<hr> <p class='card-text'><i class='fas fa-user' style='color: #FC76A1;'></i> " + change.doc.data().name + " <i class='fas fa-mars' style='color: #FC76A1;'></i><hr><i class='fas fa-phone' style='color: #FC76A1;'></i> +91 " + change.doc.data().phoneNo + "<hr><i class='fas fa-map-marker-alt' style='color: #FC76A1;'></i> " + change.doc.data().locDesc + "<hr><i class='fas fa-info-circle' style='color: #FC76A1;'></i> " + change.doc.data().description + "</p> <button onClick='deleteReport1(this.id)' class='btn hover-item' id='del" + change.doc.data().caseid + "'  style='float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;'>Close case</button> </div>  </div> </div>" + userreports.innerHTML;
-            }else{
-                userreports.innerHTML =  "<div class='col' id='card"+ change.doc.data().caseid +"'> <div class='card text-white bg-dark mb-3' style='min-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;'> <div class='card-header'><i class='fas fa-exclamation-triangle' style='color: #FC76A1;'></i> Case ID #" + change.doc.data().caseid + " <a href='#map' onClick='reply_click(this.id)' id='" + change.doc.data().caseid + "' style='background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;'><i class='fas fa-crosshairs'></i></a></div> <div class='card-body'> <h5 class='card-title'><i class='fas fa-skull' style='color: #FC76A1;'></i> " + change.doc.data().crimeType + "</h5><hr> <p class='card-text'><i class='fas fa-calendar-alt' style='color: #FC76A1;'></i> " + String(change.doc.data().datetime.toDate()).substring(0, 24) + "<hr> <p class='card-text'><i class='fas fa-user' style='color: #FC76A1;'></i> " + change.doc.data().name + " <i class='fas fa-venus' style='color: #FC76A1;'></i><hr><i class='fas fa-phone' style='color: #FC76A1;'></i> +91 " + change.doc.data().phoneNo + "<hr><i class='fas fa-map-marker-alt' style='color: #FC76A1;'></i> " + change.doc.data().locDesc + "<hr><i class='fas fa-info-circle' style='color: #FC76A1;'></i> " + change.doc.data().description + "</p> <button onClick='deleteReport1(this.id)' class='btn hover-item' id='del" + change.doc.data().caseid + "'  style='float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;'>Close case</button> </div>  </div> </div>" + userreports.innerHTML;
+                if (change.doc.data().gender == 'Male') {
+                    userreports.innerHTML = "<div class='col' id='card" + change.doc.data().caseid + "'> <div class='card text-white bg-dark mb-3' style='min-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;'> <div class='card-header'><i class='fas fa-exclamation-triangle' style='color: #FC76A1;'></i> Case ID #" + change.doc.data().caseid + " <a href='#map' onClick='reply_click(this.id)' id='" + change.doc.data().caseid + "' style='background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;'><i class='fas fa-crosshairs'></i></a></div> <div class='card-body'> <h5 id='cardcrime" + change.doc.data().caseid + "' class='card-title'><i class='fas fa-skull' style='color: #FC76A1;'></i> " + change.doc.data().crimeType + "</h5><hr> <p class='card-text'><i class='fas fa-calendar-alt' style='color: #FC76A1;'></i> " + String(change.doc.data().datetime.toDate()).substring(0, 24) + "<hr> <p class='card-text'><i class='fas fa-user' style='color: #FC76A1;'></i> " + change.doc.data().name + " <i class='fas fa-mars' style='color: #FC76A1;'></i><hr><i class='fas fa-phone' style='color: #FC76A1;'></i> +91 " + change.doc.data().phoneNo + "<hr><i class='fas fa-map-marker-alt' style='color: #FC76A1;'></i> " + change.doc.data().locDesc + "<hr><i class='fas fa-info-circle' style='color: #FC76A1;'></i> " + change.doc.data().description + "</p> <button onClick='deleteReport1(this.id)' class='btn hover-item' id='del" + change.doc.data().caseid + "'  style='float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;'>Close case</button> </div>  </div> </div>" + userreports.innerHTML;
+                } else {
+                    userreports.innerHTML = "<div class='col' id='card" + change.doc.data().caseid + "'> <div class='card text-white bg-dark mb-3' style='min-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;'> <div class='card-header'><i class='fas fa-exclamation-triangle' style='color: #FC76A1;'></i> Case ID #" + change.doc.data().caseid + " <a href='#map' onClick='reply_click(this.id)' id='" + change.doc.data().caseid + "' style='background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;'><i class='fas fa-crosshairs'></i></a></div> <div class='card-body'> <h5 id='cardcrime" + change.doc.data().caseid + "' class='card-title'><i class='fas fa-skull' style='color: #FC76A1;'></i> " + change.doc.data().crimeType + "</h5><hr> <p class='card-text'><i class='fas fa-calendar-alt' style='color: #FC76A1;'></i> " + String(change.doc.data().datetime.toDate()).substring(0, 24) + "<hr> <p class='card-text'><i class='fas fa-user' style='color: #FC76A1;'></i> " + change.doc.data().name + " <i class='fas fa-venus' style='color: #FC76A1;'></i><hr><i class='fas fa-phone' style='color: #FC76A1;'></i> +91 " + change.doc.data().phoneNo + "<hr><i class='fas fa-map-marker-alt' style='color: #FC76A1;'></i> " + change.doc.data().locDesc + "<hr><i class='fas fa-info-circle' style='color: #FC76A1;'></i> " + change.doc.data().description + "</p> <button onClick='deleteReport1(this.id)' class='btn hover-item' id='del" + change.doc.data().caseid + "'  style='float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;'>Close case</button> </div>  </div> </div>" + userreports.innerHTML;
 
-            }
+                }
                 var el = document.createElement('div');
                 el.className = 'marker';
                 var marker = new mapboxgl.Marker(el)
                     .setLngLat([change.doc.data().location.longitude, change.doc.data().location.latitude])
-                    .setPopup(new mapboxgl.Popup().setHTML("<h5>Case ID #" + change.doc.data().caseid + "</h5><hr><h6 style='text-align: left'><i class='fas fa-skull-crossbones'></i> " + change.doc.data().crimeType + "</h6>"  + "<h6 style='text-align: left'><i class='fas fa-user'></i> " + change.doc.data().name + "</h6>" + "<h6 style='text-align: left'><i class='fas fa-phone-alt'></i> +91 " + change.doc.data().phoneNo + "</h6>"))
+                    .setPopup(new mapboxgl.Popup().setHTML("<h5 class='casehover' id='popup" + String(change.doc.data().caseid) + "' onclick='findreport(this.id)'>Case ID #" + change.doc.data().caseid + "</h5><hr><h6 style='text-align: left'><i class='fas fa-skull-crossbones'></i> " + change.doc.data().crimeType + "</h6>" + "<h6 style='text-align: left'><i class='fas fa-user'></i> " + change.doc.data().name + "</h6>" + "<h6 style='text-align: left'><i class='fas fa-phone-alt'></i> +91 " + change.doc.data().phoneNo + "</h6>"))
                     .addTo(map);
 
 
@@ -45,7 +45,7 @@ db.collection("report").orderBy("caseid", "asc")
 
             }
             // if (change.type === "modified") {
-                
+
             //     userreports.innerHTML += "<div class='col'> <div class='card text-white bg-dark mb-3' style='min-width: 18rem; border-style: solid; border-color: #FC76A1; z-index: 1;'> <div class='card-header'><i class='fas fa-exclamation-triangle' style='color: #FC76A1;'></i> Case ID #" + change.doc.data().caseid + " <a href='#map' onClick='reply_click(this.id)' id='" + change.doc.data().caseid + "' style='background-color: #FC76A1; padding: 8px; font-size: 18px; border-radius: 1vw; float: right; margin: 0.5vw;'><i class='fas fa-crosshairs'></i></a></div> <div class='card-body'> <h5 class='card-title'><i class='fas fa-skull' style='color: #FC76A1;'></i> " + change.doc.data().crimeType + "</h5><hr> <p class='card-text'><i class='fas fa-calendar-alt' style='color: #FC76A1;'></i> " + String(change.doc.data().datetime.toDate()).substring(0, 24) + "<hr> <p class='card-text'><i class='fas fa-user' style='color: #FC76A1;'></i> " + change.doc.data().name + "<hr><i class='fas fa-phone' style='color: #FC76A1;'></i> +91 " + change.doc.data().phoneNo + "<hr><i class='fas fa-map-marker-alt' style='color: #FC76A1;'></i> " + change.doc.data().location.latitude.toFixed(4) + "° N , " + change.doc.data().location.longitude.toFixed(4) + "° E<hr><i class='fas fa-info-circle' style='color: #FC76A1;'></i> " + change.doc.data().description + "</p> <button onClick='deleteReport1(this.id)' class='btn hover-item' id='del" + change.doc.data().caseid + "'  style='float: right; color: white; background-color: #30303D; border-radius: 1vw; border-style: solid;'>Close case</button>  </div> </div>"
             //     var el = document.createElement('div');
             //     el.className = 'marker';
@@ -57,10 +57,10 @@ db.collection("report").orderBy("caseid", "asc")
 
             // }
             if (change.type === "removed") {
-                
+
                 const childOne = document.getElementById('card' + change.doc.data().caseid);
                 userreports.removeChild(childOne);
-                marker.remove(); 
+                marker.remove();
 
             }
         });
@@ -215,6 +215,30 @@ function refreshpageafterdelete() {
     location.reload();
 }
 
+function findreport(caseid) {
 
+    location.hash =  caseid.substring(5, 17);
+        var box =  '#' + 'cardcrime' + caseid.substring(5, 17);
+        var body = $(box);
+        var colors = ['#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', '#FC76A1', '#FB2367', 'white'];
+        var currentIndex = 0;
+        setInterval(function () {
+            body.css({
+                color: colors[currentIndex],
+                transition: 200,
+            });
+            if (!colors[currentIndex]) {
+                clearInterval();
+            } else {
+                currentIndex++;
+            }
+        }, 100);
+    
+    setTimeout(function () {
+        location.hash = null;
+    }, 3000);
+
+
+}
 
 
